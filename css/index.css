@@ -39,6 +39,7 @@ body {
     color: #2148C0;
     border-radius: 10px;
     border: 0;
+    font-size: 17px;
     cursor: pointer;
     transition: 0.5s;
 }

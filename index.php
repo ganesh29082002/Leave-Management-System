@@ -16,8 +16,6 @@
     <div class="main">
         <h1>Leave Management System</h1>
         <button><img src="assets/google.png" alt="Google Logo"><span>Login with Google</span></button>
-        <button><img src="assets/google.png" alt="Google Logo"><span>Login with Google</span></button>
-
     </div>
 </body>
 

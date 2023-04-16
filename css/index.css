@@ -20,12 +20,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 30px;
 }
 
 .main h1 {
     color: white;
-    margin-bottom: 30px;
     font-size: xx-large;
+}
+.main .bit {
+    width: 10%;
 }
 
 .main button {
@@ -34,7 +37,7 @@ body {
     justify-content: center;
     gap: 5%;
     width: 20%;
-    padding: 7px;
+    padding: 8px;
     font-weight: bold;
     color: #2148C0;
     border-radius: 10px;

@@ -15,6 +15,7 @@
 <body>
     <div class="main">
         <h1>Leave Management System</h1>
+        <img src="assets/bitlogo_transparent.png" class="bit" alt="Bit Logo">
         <button><img src="assets/google.png" alt="Google Logo"><span>Login with Google</span></button>
     </div>
 </body>

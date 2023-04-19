@@ -1,15 +1,15 @@
-<!-- Connect database -->
 <?php
+//  Connect database 
 
     define( "DB" , "bit_leave_management_system");
     require ('../includes/_db_conn.php');
 
 ?>
 
-<!-- Declare User Class -->
 
 <?php 
 
+//  Declare User Class 
 
     /*
     @class "User"
@@ -19,8 +19,10 @@
 
     class User{
 
-        public $email ;
-        public $position ;
+        public $name  ;
+        public $deptId  ;
+        public $userType  ;
+        public $position  ;
 
         /*
         @function "__contruct"
@@ -33,8 +35,22 @@
         public function __construct( $email )
         {
             $conn = sql_conn(); //get connection from database
-            $this->$email = $email;
-            $this->isValidUser($conn , $email); //calling function
+            $this->email = $email;
+
+            if( $this->isValidUser($conn , $email) ){ //Check's if User is valid or not
+
+
+                //Starting the Session
+                session_start();
+
+                //Defining the values in sessions so that it can be used throughout the project
+                $_SESSION['fullname'] = $this->name;
+                $_SESSION['deptId'] = $this->deptId;
+                $_SESSION['userType'] = $this->userType;
+                $_SESSION['position'] = $this->position;
+
+            }
+             
         }
 
         /*
@@ -46,18 +62,19 @@
         public function isValidUser( $conn , $email ){
 
             // SQL Query to check whether user with this email exists or not
-            $sql = "SELECT * FROM " .DB. ".users WHERE email = 'co.2020.baanandpara@bitwardha.ac.in' ";
+            $sql = "SELECT * FROM " .DB. ".users WHERE email = '".$email. "'";
 
             $result =  mysqli_query( $conn , $sql);
             $rows = mysqli_fetch_array($result); // Response
 
+
             if( !empty( $rows ) ){
 
                 // set position
-                $this.$name = $rows['fullName'];
-                $this.$deptId = $rows['deptId'];
-                $this.$userType = $rows['userType'];
-                $this.$position = $rows['position'];
+                 $this->name = $rows['fullname'];
+                 $this->deptId = $rows['deptId'];
+                 $this->userType = $rows['userType'];
+                 $this->position = $rows['position'];
 
                 return true;
                 
@@ -66,12 +83,6 @@
 
         }
 
-        public function getUser(){
-
-            $data = [ $name  , $deptId  , $userType  , $position ];
-            return json_encode($data);
-
-        }
 
     }
 
@@ -79,3 +90,30 @@
 ?>
 
 
+<?php  
+//Runs the Function to validate and store user information
+
+    function setUser(){
+
+        try{
+
+            // email from POST request
+            $email = $_POST['email'];
+
+            // creating a new obj of user
+            $newUser = new User($email);
+            echo json_encode($newUser);
+
+        }catch(err){
+            return err;
+        }
+
+    }
+
+?>
+
+<?php 
+
+    return setUser();
+
+?>

@@ -23,6 +23,7 @@
         public $deptId  ;
         public $userType  ;
         public $position  ;
+        public $email  ;
 
         /*
         @function "__contruct"
@@ -104,8 +105,8 @@
             $newUser = new User($email);
             echo json_encode($newUser);
 
-        }catch(err){
-            return err;
+        }catch(Exception $err){
+            return $err;
         }
 
     }

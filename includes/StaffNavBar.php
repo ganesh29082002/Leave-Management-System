@@ -4,11 +4,12 @@
   <head>
     <meta charset="UTF-8">
     <title> Responsive Sidebar Menu </title>
-    <link rel="stylesheet" href="StaffNavBar.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/StaffHomePage.css">
+
    </head>
 <body>
   <div class="sidebar">

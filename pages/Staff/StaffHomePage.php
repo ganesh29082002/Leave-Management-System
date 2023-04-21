@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./StaffHomePage.css">
+    <link rel="stylesheet" href="../../css/StaffHomePage.css">
     <link rel="stylesheet" href="../../includes/StaffNavBar.css?v=<?php echo time();?>">
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
 

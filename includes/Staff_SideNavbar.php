@@ -34,23 +34,16 @@
       <li>
        <a href="#">
        <i class="fas fa-sticky-note"></i>
-         <span class="links_name">Manage Leave Type</span>
+         <span class="links_name">Apply Leave</span>
        </a>
-       <span class="tooltip">User</span>
+       <span class="tooltip">Apply Leave</span>
      </li>
      <li>
        <a href="#">
        <i class="fa-solid fa-building-user"></i>
-         <span class="links_name">Manage Department</span>
+         <span class="links_name">Leave Listory</span>
        </a>
-       <span class="tooltip">Manage Department</span>
-     </li>
-     <li>
-       <a href="#">
-       <i class="fa-solid fa-users"></i>
-         <span class="links_name">Manage Employees</span>
-       </a>
-       <span class="tooltip">Manage Employees</span>
+       <span class="tooltip">Leave Listory</span>
      </li>
      
      <li>
@@ -68,7 +61,7 @@
            
           
            <div class="name_job">
-             <div class="name">Admin</div>
+             <div class="name">Staff</div>
              <div class="job">ID: 123456</div>
            </div>
          </div>

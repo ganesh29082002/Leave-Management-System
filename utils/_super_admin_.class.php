@@ -41,7 +41,7 @@
         public static function getTotalEmployee() {
 
             // SQL Query to get the count of all employees
-            $sql = "SELECT COUNT(userId) FROM " .DB. ".users";
+            $sql = "SELECT COUNT(userId) FROM " .DB. ".user";
 
 
             $conn = sql_conn();
@@ -92,6 +92,45 @@
 
         }
     
+                                /*
+        @function "getTotalTeachingStaff();"
+        @description "returns Total no of Teaching Staff"
+        @returns { return int} 
+        */
+
+        public static function getTotalTeachingStaff() {
+
+            // SQL Query to get the count of all Leave Types
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'Teaching'";
+
+
+            $conn = sql_conn();
+            $result =  mysqli_query( $conn , $sql);
+            $rows = mysqli_fetch_array($result); // Response
+
+            return $rows;
+
+        }
+
+                                        /*
+        @function "getTotalNonTeachingStaff();"
+        @description "returns Total no of Non-Teaching Staff"
+        @returns { return int} 
+        */
+
+        public static function getTotalNonTeachingStaff() {
+
+            // SQL Query to get the count of all Leave Types
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'Non-Teaching'";
+
+
+            $conn = sql_conn();
+            $result =  mysqli_query( $conn , $sql);
+            $rows = mysqli_fetch_array($result); // Response
+
+            return $rows;
+
+        }
     
     }
 

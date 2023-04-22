@@ -58,6 +58,7 @@
                     data: { email },
                     success: function (response) {
 
+                        console.log(response);
 
                         const userData = JSON.parse(response)
 

@@ -53,7 +53,9 @@ include('../../utils/ManageUserUtils.php');
                 <select name="user">
                     <option value="Not Selected" selected disabled hidden>SELECT</option>
                     <option value="HOD">HOD</option>
-                    <option value="Staff">Staff</option>
+                    <option value="FACULTY">FACULTY</option>
+                    <option value="LEAVE_ADMIN">LEAVE_ADMIN</option>
+                    <option value="SUPER_ADMIN">SUPER_ADMIN</option>
                 </select></div>
                 <input type="submit" name="submit" class="submitbtn">
             </form>

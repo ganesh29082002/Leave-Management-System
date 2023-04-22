@@ -51,6 +51,7 @@ include('../../utils/_super_admin_.class.php');
                         hello
                     </div>
                 </div>
+
                 <div class="col-md-3  col-sm-12  rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D ">
                     <div class="row p-2">
                         <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
@@ -66,6 +67,7 @@ include('../../utils/_super_admin_.class.php');
                         hello
                     </div>
                 </div>
+
                 <div class="col-md-3  col-sm-12 rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D;">
                     <div class="row p-2 pb-0">
                         <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
@@ -73,7 +75,7 @@ include('../../utils/_super_admin_.class.php');
                             <div class="row pb-3 pl-0 "><h5>Total Leave Type</h5></div>
                             <div class="row  pl-3">
                                <h5><?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0] . "</p>" ?>
-</h5> 
+                                </h5> 
                             </div>
                         </div>
                     </div>
@@ -81,6 +83,41 @@ include('../../utils/_super_admin_.class.php');
                         hello
                     </div>
                 </div>
+
+                
+                <div class="col-md-3  col-sm-12 rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D;">
+                    <div class="row p-2 pb-0">
+                        <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
+                        <div class="col-6 ">
+                            <div class="row pb-3 pl-0 "><h5>Total Non-Teaching Staff</h5></div>
+                            <div class="row  pl-3">
+                               <h5><?php echo  "<p class='stats' >" . SuperAdmin::getTotalTeachingStaff()[0] . "</p>" ?>
+                                </h5> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border-top p-3">
+                        hello
+                    </div>
+                </div>
+
+                
+                <div class="col-md-3  col-sm-12 rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D;">
+                    <div class="row p-2 pb-0">
+                        <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
+                        <div class="col-6 ">
+                            <div class="row pb-3 pl-0 "><h5>Total Non-Teaching Staff</h5></div>
+                            <div class="row  pl-3">
+                               <h5><?php echo  "<p class='stats' >" . SuperAdmin::getTotalNonTeachingStaff()[0] . "</p>" ?>
+                                </h5> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row border-top p-3">
+                        hello
+                    </div>
+                </div>
+
                
                 </div>
             </div>

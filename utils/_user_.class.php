@@ -63,7 +63,7 @@
         public function isValidUser( $conn , $email ){
 
             // SQL Query to check whether user with this email exists or not
-            $sql = "SELECT * FROM " .DB. ".users WHERE email = '".$email. "'";
+            $sql = "SELECT * FROM " .DB. ".user WHERE email = '".$email. "'";
 
             $result =  mysqli_query( $conn , $sql);
             $rows = mysqli_fetch_array($result); // Response
@@ -72,7 +72,7 @@
             if( !empty( $rows ) ){
 
                 // set position
-                 $this->name = $rows['fullname'];
+                 $this->name = $rows['fullName'];
                  $this->deptId = $rows['deptId'];
                  $this->userType = $rows['userType'];
                  $this->position = $rows['position'];

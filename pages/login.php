@@ -55,7 +55,7 @@
                 $.ajax({
                     url: "../utils/_user_.class.php",
                     type: "post",
-                    data: { email },
+                    data: {  function : "setUser" ,  email },
                     success: function (response) {
 
                         console.log(response);

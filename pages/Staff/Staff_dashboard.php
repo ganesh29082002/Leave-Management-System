@@ -22,12 +22,11 @@
     ?>
     <section class="home-section">
         <div class="horizontal_navbar">
-            <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
+            <h1 class="Heading_Heder ml-3"> Bajaj Institute Technology Wardha</h1>
         </div>
         <div class="text container">Dashboard</div>
         <div class="container bg-white rounded-lg shadow-lg mt-3 ">
             <div class="row p-3 rounded-lg shadow-lg d-flex justify-content-sm-center  " style="transition: all all 0.5s ease; border-right:6px solid #11101D">
-
                 <?php $sql1 = "SELECT * FROM masterdata";
                 $res = mysqli_query($conn, $sql1) or die("result failed in table");
                 while ($row = mysqli_fetch_assoc($res)) { ?>
@@ -63,19 +62,19 @@
                 <div class="box box-primary">
                     <div class="box-body">
                         <table width="100%" class="table table-hover" id="dataTables-example">
-                            <?php
-                            $db = mysqli_connect("localhost", "root", "", "miniproject") or die("connectiion Failed");
-                             $sql1 = "SELECT * FROM serviceprovider limit 4";
-                            $res = mysqli_query($db, $sql1) or die("result failed in table");
+                            
+                             <!-- $db = mysqli_connect("localhost", "root", "", "") or die("connectiion Failed"); -->
+                            <?php $sql1 = "SELECT * FROM leavedetails Limit 5";
+                            $res = mysqli_query($conn, $sql1) or die("result failed in table");
+                           
                             if (mysqli_num_rows($res) > 0) { ?>
                                 <thead>
                                     <tr>
                                         <th>Leave Type</th>
                                         <th>From</th>
                                         <th>To</th>
-                                        <th>Description</th>
+                                        <th>Reason</th>
                                         <th>Posting Date</th>
-
                                         <th>Action</th>
                                         <th>Status</th>
                                     </tr>
@@ -87,17 +86,22 @@
                                 while ($row = mysqli_fetch_assoc($res)) {
                                 ?>
                                     <tr>
-                                        <td> <?php echo $row['faname'] . " " . $row['lname'] ?> </td>
-                                        <td><?php echo $row['gmail'] ?> </td>
-                                        <td><?php echo $row['sservice'] ?></td>
-                                        <td><?php echo $row['scategory'] ?></td>
-                                        <td><?php echo $row['charge'] ?></td>
-                                        <!-- <td><a class="btn btn-danger" href="user.php?sid=<?php echo $row['sid'] ?>"></a></td> -->
-
+                                        <td> <?php echo $row['leaveType']  ?> </td>
+                                        <td><?php echo $row['startDate'] ?> </td>
+                                        <td><?php echo $row['endDate'] ?></td>
+                                        <td><?php echo $row['reason'] ?></td>
+                                        
+                                        <td><?php echo $row['dateTime'] ?></td>
                                         <td class="text-end">
-                                            <a href="users.php?editid=<?php echo $row['sid'] ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
-                                            <a href="users.php?sid=<?php echo $row['sid'] ?>" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></a>
+                                            <a href="users.php?editid=<?php echo $row['userId'] ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
+                                            <a href="users.php?sid=<?php echo $row['userId'] ?>" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></a>
                                         </td>
+                                        <td> Approved</td>
+
+
+                                        
+
+                                        
                                     </tr>
                                 <?php } ?>
                             </tbody>

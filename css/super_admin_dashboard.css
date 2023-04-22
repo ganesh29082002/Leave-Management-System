@@ -5,43 +5,13 @@
 }
 
 .admin-dashboard-container{
-    width: 100%;
-    display: flex;
+   
     justify-content: center;
     align-items: center;  
-    flex-wrap: wrap;  
-    gap: 5%;
+   
 }
 
-.admin-dashboard-container .stats-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;  
-    flex-wrap: wrap;
-}
 
-.card{
-    padding: 30px 20px;
-    margin: 2% 1%;
-    font-size: var(--title);
-    font-weight: 500;
-    background: #f6f6f6;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    text-align: center;
-    width : 30%;
-    color: var(--black-color);
-
-}
-
-.admin-dashboard-container .stats-container .card .stats{
-
-    font-family: var(--Josefin);
-    font-size: 2rem;
-    font-size: 700;
-
-}
 
 .horizontal_navbar{
     width: 100%;
@@ -55,20 +25,8 @@
    justify-content: space-between;
    }
 
-.Card_container{
-    width: auto;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.Card_container .cards{
-    width: 200px;
-    height: 150px;
-    background-color: aqua;
-    border: 1px solid red;
-}
-.Card_container .cards .cardsblock{
-   background-color: aqua; 
-   width: 100;
-}
+   .Heading_Heder{
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
+   }

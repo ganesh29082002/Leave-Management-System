@@ -46,12 +46,12 @@ include('../../utils/ManageUserUtils.php');
                     </thead>
                     <tbody id="tbody">
                         <?php
-                        $query1 = "select * from Users WHERE userType='Teaching'";
+                        $query1 = "select * from User WHERE userType='Teaching'";
                         $result = mysqli_query($conn, $query1);
                         foreach ($result as $cols) {
                             echo "<tr>";
                             echo "<td>" . $cols['userId'] . "</td>";
-                            echo "<td>" . $cols['fullname'] . "</td>";
+                            echo "<td>" . $cols['fullName'] . "</td>";
                             echo "<td>" . $cols['email'] . "</td>";
                             echo "<td>" . $cols['joiningDate'] . "</td>";
                             echo "<td><a href='../../pages/SuperAdmin/edit.php?email=$cols[email]' name='edit'><img src= ../../assets/edit.png width='10' height='20'> </a></td>";

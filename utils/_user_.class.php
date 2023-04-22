@@ -149,8 +149,8 @@
                 " <tr>
                 <td> ". $row['leaveType'] . "</td>
                 <td> ". $row['Balance'] . "</td>
-                <td> <a href='../../pages/LeaveAdmin/creditLeaves.php?email=$row[userId]' ><img src= ../../assets/edit.png width='24px' height='24px'> </a></td>
-                <td> <a href='../../pages/LeaveAdmin/debitLeaves.php?email=$row[userId]' ><img src= ../../assets/delete.png width='24px' height='24px'> </a></td>
+                <td> <a href='../../pages/LeaveAdmin/creditLeaves.php?email=$row[userId]' ><i class='fa-sharp fa-solid fa-circle-plus' style='color: #0a121e;'></i> </a></td>
+                <td> <a href='../../pages/LeaveAdmin/debitLeaves.php?email=$row[userId]' ><i class='fa-sharp fa-solid fa-circle-minus' style='color: #0a121e;'></i> </a></td>
                 </tr>";
 
                 

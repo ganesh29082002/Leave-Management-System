@@ -9,7 +9,6 @@
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/Staff_HomePage.css">
-
    </head>
 <body>
   <div class="sidebar">
@@ -57,7 +56,6 @@
          <div class="profile-details">
          <!-- <img src="assets/ganesh.jpg" alt="profileImg"> -->
          <img src="../../assets/ganesh.jpg" alt="profileImg">
-
            
           
            <div class="name_job">
@@ -70,8 +68,6 @@
      </li>
     </ul>
   </div>
-
   <script src="../../js/script.js"></script>
-
 </body>
 </html>

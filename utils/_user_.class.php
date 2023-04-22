@@ -133,53 +133,48 @@
 
 <?php
 
-    if( isset( $_POST['function'] )  ){
+    if( isset( $_POST['function'] )  ){ //Check whether Function exists or not
 
-        if( $_POST['function'] == "getUserLeaveData" ){
-            
+        if( $_POST['function'] == "getUserLeaveData" ){ //for getUserLeaveData function 
+
+            //Get Result
             $result =  User::getUserLeaveData($_POST['email']) ;
 
-            peint_r( $result );
 
-            if( empty( $result ) ){
-                echo "EMpgty";
-            }
+            $tableRows = "";
 
-            // $rows = array();
-            // $tableRows = "";
+            while( $row = mysqli_fetch_array($result) ) {
 
+                $tableRows = $tableRows.
+                " <tr>
+                <td> ". $row['leaveType'] . "</td>
+                <td> ". $row['Balance'] . "</td>
+                <td> <a href='../../pages/LeaveAdmin/creditLeaves.php?email=$row[userId]' ><img src= ../../assets/edit.png width='24px' height='24px'> </a></td>
+                <td> <a href='../../pages/LeaveAdmin/debitLeaves.php?email=$row[userId]' ><img src= ../../assets/delete.png width='24px' height='24px'> </a></td>
+                </tr>";
 
-            // while( $row = mysqli_fetch_array($result) ) {
-            //     $rows[] = $row;
-            //     $tableRows = $tableRows.
-            //     " <tr>
-            //     <td> ". $row['leaveType'] . "</td>
-            //     <td> ". $row['Balance'] . "</td>
-            //     <td> <a href='../../pages/LeaveAdmin/creditLeaves.php?email=$row[userId]' ><img src= ../../assets/edit.png width='24px' height='24px'> </a></td>
-            //     <td> <a href='../../pages/LeaveAdmin/debitLeaves.php?email=$row[userId]' ><img src= ../../assets/delete.png width='24px' height='24px'> </a></td>
-            //     </tr>";
                 
-            // }
+            }
             
 
-            // $html = 
-            // "<table class='tablecontent'>
-            // <thead>
-            // <tr>
-            // <th>LEAVE TYPE</th>
-            // <th>Balance</th>
-            // <th>Credit Leaves</th>
-            // <th>Debit Leaves</th>
-            // </tr>
-            // </thead>
+            $table = 
+            "<table class='tablecontent'>
+            <thead>
+            <tr>
+            <th>LEAVE TYPE</th>
+            <th>Balance</th>
+            <th>Credit Leaves</th>
+            <th>Debit Leaves</th>
+            </tr>
+            </thead>
             
-            // <tbody id='tbody'>"
-            // . $tableRows . 
+            <tbody id='tbody'>"
+            . $tableRows . 
             
-            // "</tbody> 
-            // </table>" ;
+            "</tbody> 
+            </table>" ;
 
-            // echo $html;
+            echo $table;
             
         }
         

@@ -19,7 +19,7 @@ include('../../utils/_super_admin_.class.php');
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../../css/sideNavbar_comman.css">
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
-    <title>Super Admin Dashbaord</title>
+    <title>Bajaj Institute of Technology, Wardha</title>
 </head>
 
 <body>
@@ -100,14 +100,7 @@ include('../../utils/_super_admin_.class.php');
                     <div class="box-body">
                         <table width="100%" class="table table-hover" id="dataTables-example">
                             <?php
-
-
-
-                            $db = mysqli_connect("localhost", "root", "", "miniproject") or die("connectiion Failed");
-
-
-
-
+                            $db = mysqli_connect("localhost", "root", "", "bit_leave_management_system") or die("connectiion Failed");
                             $sql1 = "SELECT * FROM serviceprovider";
                             $res = mysqli_query($db, $sql1) or die("result failed in table");
                             if (mysqli_num_rows($res) > 0) { ?>

@@ -7,9 +7,9 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../css/sideNavbar_comman.css">
+    <link rel="stylesheet" href="../../css/sideNavbar_comman.css?v=<?php echo time();?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/StaffHomePage.css">
+    <link rel="stylesheet" href="../../css/StaffHomePage.css?v=<?php echo time();?>">
 
    </head>
 <body>
@@ -26,28 +26,21 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="../../pages/SuperAdmin/super_admin_dashboard.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
          <span class="tooltip">Dashboard</span>
       </li>
-      <li>
-       <a href="#">
-       <i class="fas fa-sticky-note"></i>
-         <span class="links_name">Manage Leave Type</span>
-       </a>
-       <span class="tooltip">User</span>
-     </li>
      <li>
-       <a href="#">
+       <a href="../../pages/SuperAdmin/manageDepartment.php">
        <i class="fa-solid fa-building-user"></i>
          <span class="links_name">Manage Department</span>
        </a>
        <span class="tooltip">Manage Department</span>
      </li>
      <li>
-       <a href="#">
+       <a href="../../pages/SuperAdmin/manageEmployees.php">
        <i class="fa-solid fa-users"></i>
          <span class="links_name">Manage Employees</span>
        </a>

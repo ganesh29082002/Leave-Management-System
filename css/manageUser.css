@@ -4,16 +4,41 @@
     box-sizing: border-box;
 }
 
+.manageUserMain {
+    background-color: white;
+    margin: 40px 30px;
+    padding: 10px 0;
+    border-radius: 5px;
+    border-right: 7px solid #11101D;
+    padding-bottom: 25px;
+}
+
+.addUser {
+    background-color: #11101D;
+    padding: 4px 10px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    margin: 0 2.5%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.addUser:hover {
+    transform: scale(1.02);
+}
+
 .User {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .tablecontent {
-    width: 70%;
+    width: 95%;
 }
 
 .tablecontent th {
@@ -28,10 +53,12 @@
 }
 
 td img {
-    width: 30%;
+    margin: 5px;
+    width: 40%;
 }
 
 .heading {
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 500;
+    margin: 20px 30px;
 }

@@ -24,14 +24,14 @@
          <span class="tooltip">Search</span>
       </li>
       <li>
-        <a href="#">
+        <a href="./Staff_dashboard.php">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
          <span class="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="#">
+       <a href="./Staff_apply_leave.php">
        <i class="fas fa-sticky-note"></i>
          <span class="links_name">Apply Leave</span>
        </a>

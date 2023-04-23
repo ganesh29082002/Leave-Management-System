@@ -24,10 +24,6 @@ include('../../utils/EditUserUtils.php');
     <section class="home-section">
         <div class="horizontal_navbar">
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
-            <a href="#">
-                <i class="fas fa-id-card-alt"></i>
-                <!-- <span class="tooltip">User</span> -->
-            </a>
         </div>
         <div class="manageUserMain">
             <h1 class="heading">Update User</h1>

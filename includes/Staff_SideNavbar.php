@@ -14,7 +14,7 @@
   <div class="sidebar">
     <div class="logo-details">
     <img class="bitlogo" src="../../assets/bitlogo_transparent.png" alt="profileImg">
-        <div class="logo_name">SLMSB</div>
+        <div class="logo_name">LMS</div>
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">

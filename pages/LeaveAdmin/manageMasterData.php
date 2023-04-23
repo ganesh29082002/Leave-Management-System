@@ -1,0 +1,78 @@
+<?php
+
+include('../../utils/_leave_admin_.class.php');
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../css/common.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../css/manageUser.css?v=<?php echo time(); ?>">
+    <title>Bajaj Institute of Technology, Wardha</title>
+</head>
+
+<body>
+    <?php
+    include "../../includes/leave_admin_SideNavbar.php";
+    ?>
+    <section class="home-section">
+        <div class="horizontal_navbar">
+            <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
+            <a href="#">
+                <i class="fas fa-id-card-alt"></i>
+                <!-- <span class="tooltip">User</span> -->
+            </a>
+        </div>
+        <div class="manageUserMain">
+
+            <h1 class="heading">Manage Master Data</h1>
+
+            <a href="../../pages/LeaveAdmin/addLeaveType.php"><button class="addUser">+</button></a>
+
+            <div class="User">
+
+                <table class="tablecontent">
+
+                    <thead>
+                        <tr>
+                            <th>LEAVE ID</th>
+                            <th>LEAVE TYPE</th>
+                            <th>LEAVE DESCRIPTION</th>
+                            <th>LEAVE INTERVAL</th>
+                            <th>INCREMENT</th>
+                            <th>EDIT</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <?php
+
+                        $result = LeaveAdmin::getMasterData(); // Returns Array of Tuples in Database
+
+                        foreach ($result as $cols) {
+                            echo "<tr>";
+                            echo "<td>" . $cols['leaveId'] . "</td>";
+                            echo "<td>" . $cols['leaveType'] . "</td>";
+                            echo "<td>" . $cols['leaveDesc'] . "</td>";
+                            echo "<td>" . $cols['leaveInterval'] . "  Month </td>";
+                            echo "<td>" . $cols['increment'] . "  Leaves </td>";
+                            echo "<td><a href='../../pages/LeaveAdmin/masterData_edit.php?email=$cols[leaveId]' name='edit'><img src= ../../assets/edit.png width='24px' height='24px'> </a></td>";
+                            echo "<td><a href='../../utils/delete.php?email=$cols[leaveId]' name='delete'><img src= ../../assets/delete.png width='24px' height='24px'> </a></td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

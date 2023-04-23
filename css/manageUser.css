@@ -52,9 +52,12 @@
     padding: 5px;
 }
 
-td img {
-    margin: 5px;
-    width: 40%;
+.edit {
+    font-size: large;
+}
+
+.edit, .delete {
+    color: #11101D;
 }
 
 .heading {

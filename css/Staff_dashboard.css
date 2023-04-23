@@ -1,23 +1,5 @@
 /* for horizontal_navbar Navvar */
 
-.horizontal_navbar{
- width: 100%;
- height: 79px;
- background: #11101D;
-border-left: 1px solid wheat;
-color: white;
-display: flex;
-align-items: center;
-padding-left: 10px;
-justify-content: space-between;
-}
-
-/* For Heading In Navbar */
-.Heading_Heder{
- font-size: 24px;
- font-weight: 400;
- color: white;
-}
 .horizontal_navbar a i {
     color: white;
     font-size: 25px;

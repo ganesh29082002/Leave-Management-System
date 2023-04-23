@@ -1,6 +1,6 @@
 <?php
 
-include('../../utils/ManageUserUtils.php');
+include('../../utils/ManageDepartmentUtils.php');
 
 ?>
 
@@ -15,6 +15,7 @@ include('../../utils/ManageUserUtils.php');
     <link rel="stylesheet" href="../../css/common.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../../css/manageUser.css?v=<?php echo time(); ?>">
     <title>Bajaj Institute of Technology, Wardha</title>
+    <script src="https://kit.fontawesome.com/9dcdbf7660.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -26,32 +27,30 @@ include('../../utils/ManageUserUtils.php');
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
         </div>
         <div class="manageUserMain">
-            <h1 class="heading">Manage Employees</h1>
-            <a href="../../pages/SuperAdmin/addUser.php"><button class="addUser">+</button></a>
+            <h1 class="heading">Manage Departments</h1>
+            <a href="../../pages/SuperAdmin/addDept.php"><button class="addUser">+</button></a>
             <div class="User">
                 <table class="tablecontent">
                     <thead>
                         <tr>
-                            <th>SR NO.</th>
-                            <th>FULL NAME</th>
-                            <th>EMAIL</th>
-                            <th>JOINING DATE</th>
+                            <th>DEPARTMENT ID</th>
+                            <th>DEPARTMENT NAME</th>
+                            <th>DEPARTMENT HOD</th>
                             <th>EDIT</th>
                             <th>DELETE</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">
                         <?php
-                        $query1 = "select * from User WHERE userType='Teaching'";
+                        $query1 = "SELECT * FROM department";
                         $result = mysqli_query($conn, $query1);
                         foreach ($result as $cols) {
                             echo "<tr>";
-                            echo "<td>" . $cols['userId'] . "</td>";
-                            echo "<td>" . $cols['fullName'] . "</td>";
-                            echo "<td>" . $cols['email'] . "</td>";
-                            echo "<td>" . $cols['joiningDate'] . "</td>";
-                            echo "<td><a href='../../pages/SuperAdmin/edit.php?email=$cols[email]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
-                            echo "<td><a href='../../utils/delete.php?email=$cols[email]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
+                            echo "<td>" . $cols['deptId'] . "</td>";
+                            echo "<td>" . $cols['deptName'] . "</td>";
+                            echo "<td>" . $cols['deptHod'] . "</td>";
+                            echo "<td><a href='../../pages/SuperAdmin/editDept.php?deptId=$cols[deptId]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
+                            echo "<td><a href='../../utils/deleteDept.php?deptId=$cols[deptId]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
                             echo "</tr>";
                         }
                         ?>

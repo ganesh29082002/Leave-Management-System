@@ -49,6 +49,8 @@
                 $_SESSION['deptId'] = $this->deptId;
                 $_SESSION['userType'] = $this->userType;
                 $_SESSION['position'] = $this->position;
+                $_SESSION['email'] = $this->email;
+
 
             }
              
@@ -84,6 +86,16 @@
 
         }
 
+        public static function getUserLeaveData( $email ){
+
+            $conn = sql_conn(); //get connection from database
+            $sql = "SELECT * FROM " .DB. ".leavebalance WHERE userId = (SELECT userId FROM " .DB. ".user WHERE email = '".$email. "')";
+
+            $result =  mysqli_query( $conn , $sql);
+            return $result;
+
+        }
+
 
     }
 
@@ -115,6 +127,67 @@
 
 <?php 
 
-    return setUser();
+
+   
+
 
 ?>
+
+<?php
+
+    if( isset( $_POST['function'] )  ){ //Check whether Function exists or not
+
+        if( $_POST['function'] == "getUserLeaveData" ){ //for getUserLeaveData function 
+
+            //Get Result
+            $result =  User::getUserLeaveData($_POST['email']) ;
+
+
+            $tableRows = "";
+
+            while( $row = mysqli_fetch_array($result) ) {
+
+                $tableRows = $tableRows.
+                " <tr>
+                    <form method='post' action='manageLeaves.php' >
+                        <td> ". $row['leaveType'] . "</td>
+                        <td> ". $row['Balance'] . "</td>
+                        <td> <button class='btn manageBtn' > Manage </button> </td>
+                    </form>
+                </tr>";
+
+                
+            }
+            
+
+            $table = 
+            "<table class='tablecontent'>
+            <thead>
+            <tr>
+            <th>LEAVE TYPE</th>
+            <th>Balance</th>
+            <th></th>
+            </tr>
+            </thead>
+            
+            <tbody id='tbody'>"
+            . $tableRows . 
+            
+            "</tbody> 
+            </table>" ;
+
+            echo $table;
+            
+        }
+        
+        if( $_POST['function'] == "setUser" ){
+
+            return setUser();
+
+        }
+
+    }
+
+?>
+
+

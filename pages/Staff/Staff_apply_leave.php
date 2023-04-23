@@ -1,3 +1,18 @@
+
+<?php
+session_start();
+$msg = "";
+if (!isset($_SESSION['email'])) {
+?>
+  <script>
+    window.location.href = '/Leave-Management-System/pages/login.php';
+  </script>
+<?php
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,17 +44,24 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <!-- <label for="inputEmail4">Email</label> -->
-            <input type="email" class="form-control  border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder=" Email">
+            <?php 
+            $email= $_SESSION['email'];
+            $sql1 = "SELECT * FROM user where email = '$email'";
+            $res = mysqli_query($conn, $sql1) or die("result failed in table");
+            $row = mysqli_fetch_assoc($res) ?>
+          
+            <input type="email" class="form-control  border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder=" Email" value="<?php echo $row['email']  ?>">
           </div>
           <div class="form-group col-md-6">
             <!-- <label for="inputPassword4">Password</label> -->
-            <select name="" id="" class="form-control border-top-0 border-right-0 border-left-0  border border-dark">
-              <option selected disable> Choose Department</option>
-              <?php $sql1 = "SELECT * FROM department";
+            <?php 
+              $deptId= $_SESSION['deptId'];
+              $sql1 = "SELECT * FROM department where deptId = '$deptId'";
               $res = mysqli_query($conn, $sql1) or die("result failed in table");
-              while ($row = mysqli_fetch_assoc($res)) { ?>
-                <option><?php echo $row['deptName'] ?></option>
-              <?php } ?>
+             $row = mysqli_fetch_assoc($res) ?>
+            <input type="email" class="form-control  border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder=" Email" value="<?php echo $row['deptName'] ?>">
+  
+              
             </select>
           </div>
 
@@ -56,7 +78,7 @@
             </select>
           </div>
           <div class="form-group col-md-6">
-            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="Today Date">
+            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="Today Date" value="<?php echo date("Y/m/d") ?>">
           </div>
         </div>
         <div class="form-row">
@@ -91,8 +113,17 @@
 
         <div class="form-row" id="dynamicadd">
           <div class="form-group col-md-3">
-            <input type="text" placeholder="Adjust Lecture With..." name="name[]" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4">
-          </div>
+          <select id="inputState" class="form-control border-top-0 border-right-0 border-left-0 border border-dark">
+              <option selected disable>Lecture Adjust With.. </option>
+              <?php $sql1 = "SELECT * FROM user";
+                    $res = mysqli_query($conn, $sql1) or die("result failed in table");
+                    while ($row = mysqli_fetch_assoc($res)) { ?> -->
+              <option><?php echo $row['email'] ?></option>
+
+            <?php } ?>
+            </select>   
+        
+        </div>
 
           <div class="form-group col-md-2">
             <input type="date" name="Lecturedate[]" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Lecture Date" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4">

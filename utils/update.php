@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $joining = $_POST['joining'];
     $staff = $_POST['staff'];
     $position = $_POST['position'];
-    $query = "UPDATE users SET email='$emailval',fullname='$fullname',deptId='$deptid',joiningDate='$joining',userType='$staff',position='$position' WHERE email = '$email'";
+    $query = "UPDATE user SET email='$emailval',fullname='$fullname',deptId='$deptid',joiningDate='$joining',userType='$staff',position='$position' WHERE email = '$email'";
     $result = mysqli_query($conn, $query);
     
     if ($result) {

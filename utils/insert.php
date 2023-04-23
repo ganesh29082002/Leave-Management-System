@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     $joining = $_POST['joining'];
     $staff = $_POST['staff'];
     $user = $_POST['user'];
-    $query = "INSERT INTO users(userId, email, fullname, deptId, joiningDate, userType, position) VALUES ('$userId','$email','$fullname','$deptId','$joining','$staff','$user')";
+    $query = "INSERT INTO user(userId, email, fullName, deptId, joiningDate, userType, position) VALUES ('$userId','$email','$fullname','$deptId','$joining','$staff','$user')";
     $result = mysqli_query($conn, $query);
     
     if ($result) {

@@ -56,6 +56,14 @@ td img {
     margin: 5px;
 }
 
+.edit {
+    font-size: large;
+}
+
+.edit, .delete {
+    color: #11101D;
+}
+
 .heading {
     font-size: 24px;
     font-weight: 500;

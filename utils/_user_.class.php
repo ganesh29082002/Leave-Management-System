@@ -49,6 +49,8 @@
                 $_SESSION['deptId'] = $this->deptId;
                 $_SESSION['userType'] = $this->userType;
                 $_SESSION['position'] = $this->position;
+                $_SESSION['email'] = $this->email;
+
 
             }
              

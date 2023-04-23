@@ -35,14 +35,14 @@ include('../../utils/_super_admin_.class.php');
 
         <div class="container bg-white rounded-lg shadow-lg mt-3">
             <div class="row p-3 rounded-lg shadow-lg d-flex justify-content-sm-center " style="transition: all all 0.5s ease; border-right:6px solid #11101D; ">
-
-
                 <div class="col-md-3 col-sm-12  col-sm-12 rounded-lg m-3 bg-white shadow-lg" style="border-right:6px solid #11101D ">
                     <div class="row p-2 pr-0">
-                        <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
-                        <div class="col-6 ">
-                            <div class="row pb-3 pl-0 "><h5>Total Employees</h5></div>
-                            <div class="row  pl-3 pr-0">
+
+                        <div class="col-12  ">
+                            <div class=" row pb-1 pl-2 d-flex justify-content-sm-center">
+                                <h5>Total Employees</h5>
+                            </div>
+                            <div class="row d-flex justify-content-sm-center">
                                 <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalEmployee()[0] . "</p>" ?> </h5>
                             </div>
                         </div>
@@ -51,15 +51,15 @@ include('../../utils/_super_admin_.class.php');
                         hello
                     </div>
                 </div>
+                <div class="col-md-3 col-sm-12  col-sm-12 rounded-lg m-3 bg-white shadow-lg" style="border-right:6px solid #11101D ">
+                    <div class="row p-2 pr-0">
 
-                <div class="col-md-3  col-sm-12  rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D ">
-                    <div class="row p-2">
-                        <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
-                        <div class="col-6 ">
-                            <div class="row pb-3 pl-0 "><h5>Total Department</h5></div>
-                            <div class="row  pl-3">
-                               <h5><?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0] . "</p>" ?></h5> 
-
+                        <div class="col-12  ">
+                            <div class=" row pb-1 pl-2 d-flex justify-content-sm-center">
+                                <h5> Total Department</h5>
+                            </div>
+                            <div class="row d-flex justify-content-sm-center">
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0] . "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>
@@ -67,15 +67,15 @@ include('../../utils/_super_admin_.class.php');
                         hello
                     </div>
                 </div>
+                <div class="col-md-3 col-sm-12  col-sm-12 rounded-lg m-3 bg-white shadow-lg" style="border-right:6px solid #11101D ">
+                    <div class="row p-2 pr-0">
 
-                <div class="col-md-3  col-sm-12 rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D;">
-                    <div class="row p-2 pb-0">
-                        <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
-                        <div class="col-6 ">
-                            <div class="row pb-3 pl-0 "><h5>Total Leave Type</h5></div>
-                            <div class="row  pl-3">
-                               <h5><?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0] . "</p>" ?>
-                                </h5> 
+                        <div class="col-12  ">
+                            <div class=" row pb-1 pl-2 d-flex justify-content-sm-center">
+                                <h5> Total Leave Type</h5>
+                            </div>
+                            <div class="row d-flex justify-content-sm-center">
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0]. "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>
@@ -83,16 +83,15 @@ include('../../utils/_super_admin_.class.php');
                         hello
                     </div>
                 </div>
+                <div class="col-md-3 col-sm-12  col-sm-12 rounded-lg m-3 bg-white shadow-lg" style="border-right:6px solid #11101D ">
+                    <div class="row p-2 pr-0">
 
-                
-                <div class="col-md-3  col-sm-12 rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D;">
-                    <div class="row p-2 pb-0">
-                        <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
-                        <div class="col-6 ">
-                            <div class="row pb-3 pl-0 "><h5>Total Non-Teaching Staff</h5></div>
-                            <div class="row  pl-3">
-                               <h5><?php echo  "<p class='stats' >" . SuperAdmin::getTotalTeachingStaff()[0] . "</p>" ?>
-                                </h5> 
+                        <div class="col-12  ">
+                            <div class=" row pb-1 pl-2 d-flex justify-content-sm-center">
+                                <h5> Total Teaching Staff</h5>
+                            </div>
+                            <div class="row d-flex justify-content-sm-center">
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalTeachingStaff()[0]. "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>
@@ -100,33 +99,30 @@ include('../../utils/_super_admin_.class.php');
                         hello
                     </div>
                 </div>
+                <div class="col-md-3 col-sm-12  col-sm-12 rounded-lg m-3 bg-white shadow-lg" style="border-right:6px solid #11101D ">
+                    <div class="row p-2 pr-0">
 
-                
-                <div class="col-md-3  col-sm-12 rounded-lg m-3 bg-white shadow" style="border-right:6px solid #11101D;">
-                    <div class="row p-2 pb-0">
-                        <div class="col-3 pl-3 pt-3   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div>
-                        <div class="col-6 ">
-                            <div class="row pb-3 pl-0 "><h5>Total Non-Teaching Staff</h5></div>
-                            <div class="row  pl-3">
-                               <h5><?php echo  "<p class='stats' >" . SuperAdmin::getTotalNonTeachingStaff()[0] . "</p>" ?>
-                                </h5> 
+                        <div class="col-12  ">
+                            <div class=" row pb-1 pl-2 d-flex justify-content-sm-center">
+                                <h5> Total Non-Teaching Staff</h5>
+                            </div>
+                            <div class="row d-flex justify-content-sm-center">
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalNonTeachingStaff()[0]. "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>
                     <div class="row border-top p-3">
                         hello
                     </div>
-                </div>
-
-               
                 </div>
             </div>
+        </div>
         </div>
 
 
         <!-- DEMO -->
-        
-        <div class="content mt-3 row rounded-lg" >
+
+        <div class="content mt-3 row rounded-lg">
             <div class="container clg-12  bg-white rounded-lg  " style="transition: all all 0.5s ease; border-right:6px solid #11101D">
                 <div class="page-title p-4">
                     <h3> Staff Details

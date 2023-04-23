@@ -10,4 +10,7 @@ $deptid = $row['deptId'];
 $joining = $row['joiningDate'];
 $staff = $row['userType'];
 $pos = $row['position'];
+
+$query = "SELECT deptId, deptName FROM department";
+$result = mysqli_query($conn, $query);
 ?>

@@ -45,10 +45,14 @@ include('../../utils/ManageDepartmentUtils.php');
                         $query1 = "SELECT * FROM department";
                         $result = mysqli_query($conn, $query1);
                         foreach ($result as $cols) {
+                            $userid = $cols['deptHod'];
+                            $query1 = "SELECT fullName FROM user WHERE userId = $userid";
+                            $result1 = mysqli_query($conn, $query1);
+                            $row = mysqli_fetch_assoc($result1);
                             echo "<tr>";
                             echo "<td>" . $cols['deptId'] . "</td>";
                             echo "<td>" . $cols['deptName'] . "</td>";
-                            echo "<td>" . $cols['deptHod'] . "</td>";
+                            echo "<td>" . $row['fullName'] . "</td>";
                             echo "<td><a href='../../pages/SuperAdmin/editDept.php?deptId=$cols[deptId]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
                             echo "<td><a href='../../utils/deleteDept.php?deptId=$cols[deptId]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
                             echo "</tr>";

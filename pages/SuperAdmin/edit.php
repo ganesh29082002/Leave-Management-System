@@ -30,10 +30,28 @@ include('../../utils/EditUserUtils.php');
             <form class="addUserDiv" action="../../utils/update.php?email=<?php echo $email?>" method="POST">
                 <div class="rows"><label>Email: </label><input type="text" name="email" value="<?php echo $emailval?>"></div>
                 <div class="rows"><label>Full Name: </label><input type="text" name="fullname" value="<?php echo $fullnameval?>"></div>
-                <div class="rows"><label>Department: </label><input type="text" name="deptid" value="<?php echo $deptid?>"></div>
+                <div class="rows"><label>Department: </label>
+                <select name="deptid">
+                    <option value="Not Selected" selected disabled hidden>SELECT</option>
+                    <?php while($row = mysqli_fetch_assoc($result)) {
+                    echo "<option value='$row[deptId]'>$row[deptId]. $row[deptName]</option>";
+                    } ?>
+                </select></div>
                 <div class="rows"><label>Joining Date: </label><input type="date" name="joining" value="<?php echo $joining?>"></div>
-                <div class="rows"><label>Staff: </label><input type="text" name="staff" value="<?php echo $staff?>"></div>
-                <div class="rows"><label>User Type: </label><input type="text" name="position" value="<?php echo $pos?>"></div>
+                <div class="rows"><label>Staff: </label>
+                <select name="staff">
+                    <option value="Not Selected" selected disabled hidden>SELECT</option>
+                    <option value="Teaching">Teaching</option>
+                    <option value="Non Teaching">Non Teaching</option>
+                </select></div>
+                <div class="rows"><label>User Type: </label>
+                <select name="position">
+                    <option value="Not Selected" selected disabled hidden>SELECT</option>
+                    <option value="HOD">HOD</option>
+                    <option value="FACULTY">FACULTY</option>
+                    <option value="LEAVE_ADMIN">LEAVE_ADMIN</option>
+                    <option value="SUPER_ADMIN">SUPER_ADMIN</option>
+                </select></div>
                 <input type="submit" name="submit" class="submitbtn">
             </form>
         </div>

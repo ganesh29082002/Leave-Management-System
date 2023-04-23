@@ -189,15 +189,3 @@
 ?>
 
 
-<?php
-
-    if( isset($_POST['submit']) ){
-        echo $_POST['submit'];
-    }
-
-    if( isset($_GET['submit']) ){
-        echo $_GET['submit'];
-    }
-
-
-?>

@@ -6,7 +6,6 @@
 
 ?>
 
-
 <?php 
 
 
@@ -72,6 +71,34 @@
 
     
     }
+
+?>
+
+
+<?php
+
+if (isset($_POST['submit'])) {
+
+    $leaveType = $_POST['leaveType'];
+    $leaveDesc = $_POST['leaveDesc'];
+    $leaveInterval = $_POST['leaveInterval'];
+    $increment = $_POST['increment'];
+    
+    $conn = sql_conn();
+
+    $query = "INSERT INTO masterdata(leaveType, leaveDesc, leaveInterval, increment) VALUES ('$leaveType','$leaveDesc','$leaveInterval','$increment' )";
+    $result = mysqli_query($conn, $query);
+    
+    if ($result) {
+        // header("location: ../../pages/LeaveAdmin/manageMasterData.php");
+        exit(0);
+    } else {
+        echo "User Not Added!";
+        exit(0);
+    }
+}
+
+
 
 ?>
 

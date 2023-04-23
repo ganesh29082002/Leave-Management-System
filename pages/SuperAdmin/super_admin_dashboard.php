@@ -75,7 +75,7 @@ include('../../utils/_super_admin_.class.php');
                                 <h5> Total Leave Type</h5>
                             </div>
                             <div class="row d-flex justify-content-sm-center">
-                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0]. "</p>" ?> </h5>
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0] . "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@ include('../../utils/_super_admin_.class.php');
                                 <h5> Total Teaching Staff</h5>
                             </div>
                             <div class="row d-flex justify-content-sm-center">
-                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalTeachingStaff()[0]. "</p>" ?> </h5>
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalTeachingStaff()[0] . "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>
@@ -107,7 +107,7 @@ include('../../utils/_super_admin_.class.php');
                                 <h5> Total Non-Teaching Staff</h5>
                             </div>
                             <div class="row d-flex justify-content-sm-center">
-                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalNonTeachingStaff()[0]. "</p>" ?> </h5>
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalNonTeachingStaff()[0] . "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>
@@ -117,87 +117,6 @@ include('../../utils/_super_admin_.class.php');
                 </div>
             </div>
         </div>
-        </div>
-
-
-        <!-- DEMO -->
-
-        <div class="content mt-3 row rounded-lg">
-            <div class="container clg-12  bg-white rounded-lg  " style="transition: all all 0.5s ease; border-right:6px solid #11101D">
-                <div class="page-title p-4">
-                    <h3> Staff Details
-                        <a href="roles.html" class="btn btn-sm btn-outline-primary float-end"><i class="fas fa-user-shield"></i> Roles</a>
-                    </h3>
-                </div>
-                <div class="box box-primary">
-                    <div class="box-body">
-                        <table width="100%" class="table table-hover" id="dataTables-example">
-                            <?php
-                            $db = mysqli_connect("localhost", "root", "", "bit_leave_management_system") or die("connectiion Failed");
-                            $sql1 = "SELECT * FROM serviceprovider";
-                            $res = mysqli_query($db, $sql1) or die("result failed in table");
-                            if (mysqli_num_rows($res) > 0) { ?>
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Role</th>
-                                        <th>Type</th>
-                                        <th>Charge</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                            <?php } ?>
-
-                            <tbody>
-                                <?php
-                                while ($row = mysqli_fetch_assoc($res)) {
-                                ?>
-                                    <tr>
-                                        <td> <?php echo $row['faname'] . " " . $row['lname'] ?> </td>
-                                        <td><?php echo $row['gmail'] ?> </td>
-                                        <td><?php echo $row['sservice'] ?></td>
-                                        <td><?php echo $row['scategory'] ?></td>
-                                        <td><?php echo $row['charge'] ?></td>
-                                        <!-- <td><a class="btn btn-danger" href="user.php?sid=<?php echo $row['sid'] ?>"></a></td> -->
-
-                                        <td class="text-end">
-                                            <a href="users.php?editid=<?php echo $row['sid'] ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
-                                            <a href="users.php?sid=<?php echo $row['sid'] ?>" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                <?php } ?>
-                            </tbody>
-                            <!-- for  Delete button  -->
-                            <?php
-                            if (isset($_GET['sid'])) {
-                                include "config.php";
-                                $sid = $_GET['sid'];
-                                $sql = "DELETE FROM serviceprovider WHERE sid=$sid";
-                                $result = mysqli_query($db, $sql) or die("die in uses.php delete function");
-                            }
-
-                            if (isset($_GET['editid'])) {
-                                include "config.php";
-                                $editid = $_GET['editid'];
-                                // $sql= "DELETE FROM serviceprovider WHERE sid=$editid";
-                                // $result=mysqli_query($db,$sql) or die("die in uses.php edit function");
-                            }
-                            ?>
-
-
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-
-
-
-
-
     </section>
 
 </body>

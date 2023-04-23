@@ -147,10 +147,11 @@
 
                 $tableRows = $tableRows.
                 " <tr>
-                <td> ". $row['leaveType'] . "</td>
-                <td> ". $row['Balance'] . "</td>
-                <td> <a href='../../pages/LeaveAdmin/creditLeaves.php?email=$row[userId]' ><i class='fa-sharp fa-solid fa-circle-plus' style='color: #0a121e;'></i> </a></td>
-                <td> <a href='../../pages/LeaveAdmin/debitLeaves.php?email=$row[userId]' ><i class='fa-sharp fa-solid fa-circle-minus' style='color: #0a121e;'></i> </a></td>
+                    <form method='post' action='manageLeaves.php' >
+                        <td> ". $row['leaveType'] . "</td>
+                        <td> ". $row['Balance'] . "</td>
+                        <td> <button class='btn manageBtn' > Manage </button> </td>
+                    </form>
                 </tr>";
 
                 
@@ -163,8 +164,7 @@
             <tr>
             <th>LEAVE TYPE</th>
             <th>Balance</th>
-            <th>Credit Leaves</th>
-            <th>Debit Leaves</th>
+            <th></th>
             </tr>
             </thead>
             
@@ -188,3 +188,16 @@
 
 ?>
 
+
+<?php
+
+    if( isset($_POST['submit']) ){
+        echo $_POST['submit'];
+    }
+
+    if( isset($_GET['submit']) ){
+        echo $_GET['submit'];
+    }
+
+
+?>

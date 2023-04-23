@@ -57,7 +57,8 @@
              <div class="job">ID: 123456</div>
            </div>
          </div>
-         <i class="fa-solid fa-right-from-bracket" id="log_out"></i>
+         <a href="../logout.php" class="logouthyperlink"><i class="fa-solid fa-right-from-bracket" id="log_out"></i></a>
+ 
          <!-- <i class='bx bx-log-out' id="log_out" ></i> -->
      </li>
     </ul>

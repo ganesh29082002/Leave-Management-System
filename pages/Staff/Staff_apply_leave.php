@@ -1,18 +1,8 @@
 
 <?php
-session_start();
-$msg = "";
-if (!isset($_SESSION['email'])) {
+include "../../includes/Authentication_verified.php"
 ?>
-  <script>
-    window.location.href = '/Leave-Management-System/pages/login.php';
-  </script>
-<?php
-}
 
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +40,7 @@ if (!isset($_SESSION['email'])) {
             $res = mysqli_query($conn, $sql1) or die("result failed in table");
             $row = mysqli_fetch_assoc($res) ?>
           
-            <input type="email" class="form-control  border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder=" Email" value="<?php echo $row['email']  ?>">
+            <input type="email" disabled="disabled" class="form-control  border-top-0 border-right-0 border-left-0 border border-dark bg-white" id="inputEmail4" placeholder=" Email" value="<?php echo $row['email']  ?>">
           </div>
           <div class="form-group col-md-6">
             <!-- <label for="inputPassword4">Password</label> -->
@@ -59,7 +49,7 @@ if (!isset($_SESSION['email'])) {
               $sql1 = "SELECT * FROM department where deptId = '$deptId'";
               $res = mysqli_query($conn, $sql1) or die("result failed in table");
              $row = mysqli_fetch_assoc($res) ?>
-            <input type="email" class="form-control  border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder=" Email" value="<?php echo $row['deptName'] ?>">
+            <input type="email" disabled="disabled" class="form-control bg-white border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder=" Email" value="<?php echo $row['deptName'] ?>">
   
               
             </select>
@@ -78,7 +68,7 @@ if (!isset($_SESSION['email'])) {
             </select>
           </div>
           <div class="form-group col-md-6">
-            <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="Today Date" value="<?php echo date("Y/m/d") ?>">
+            <input type="text" disabled="disabled" class="form-control bg-white border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="Today Date" value="<?php echo date("Y/m/d") ?>">
           </div>
         </div>
         <div class="form-row">

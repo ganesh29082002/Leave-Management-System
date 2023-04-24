@@ -29,8 +29,6 @@ include('../../utils/ManageUserUtils.php');
             <h1 class="heading">Add User</h1>
 
             <form class="addUserDiv" action="../../utils/insert.php" method="POST">
-                
-                <div class="rows"><label>User Id: </label><input type="text" name="userId"></div>
                 <div class="rows"><label>Email: </label><input type="text" name="email"></div>
                 <div class="rows"><label>Full Name: </label><input type="text" name="fullname"></div>
                 <div class="rows"><label>Department: </label>

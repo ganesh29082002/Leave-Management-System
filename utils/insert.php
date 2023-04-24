@@ -4,14 +4,13 @@ include ('../includes/_db_conn.php');
 $conn = sql_conn();
 
 if (isset($_POST['submit'])) {
-    $userId = $_POST['userId'];
     $email = $_POST['email'];
     $fullname = $_POST['fullname'];
     $deptId = $_POST['deptid'];
     $joining = $_POST['joining'];
     $staff = $_POST['staff'];
     $user = $_POST['user'];
-    $query = "INSERT INTO user(userId, email, fullName, deptId, joiningDate, userType, position) VALUES ('$userId','$email','$fullname','$deptId','$joining','$staff','$user')";
+    $query = "INSERT INTO user(email, fullName, deptId, joiningDate, userType, position) VALUES ('$email','$fullname','$deptId','$joining','$staff','$user')";
     $result = mysqli_query($conn, $query);
     
     if ($result) {

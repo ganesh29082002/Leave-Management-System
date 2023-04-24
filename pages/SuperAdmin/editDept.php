@@ -28,9 +28,8 @@ include('../../utils/EditDepartmentUtils.php');
         <div class="manageUserMain">
             <h1 class="heading">Update Department</h1>
             <form class="addUserDiv" action="../../utils/updateDept.php?deptId=<?php echo $deptId?>" method="POST">
-                <div class="rows"><label>Department Id: </label><input type="text" name="deptId" value="<?php echo $deptId?>"></div>
                 <div class="rows"><label>Department Name: </label><input type="text" name="deptName" value="<?php echo $deptName?>"></div>
-                <div class="rows"><label>Department HOD Id: </label><input type="text" name="deptHod" value="<?php echo $deptHod?>"></div>
+                <div class="rows"><label>Department HOD Email: </label><input type="text" name="deptHodEmail" value="<?php echo $deptHodEmail?>"></div>
                 <input type="submit" name="submit" class="submitbtn">
             </form>
         </div>

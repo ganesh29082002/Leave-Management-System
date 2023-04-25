@@ -39,7 +39,7 @@
        <span class="tooltip">Apply Leave</span>
      </li>
      <li>
-       <a href="#">
+       <a href="./staff_leave_history.php">
        <i class="fa-solid fa-building-user"></i>
          <span class="links_name">Leave Listory</span>
        </a>

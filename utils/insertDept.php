@@ -2,7 +2,7 @@
 
 include ('../includes/_db_conn.php');
 $conn = sql_conn();
-$deptId = $_GET['deptId'];
+// $deptId = $_GET['deptId'];
 
 if (isset($_POST['submit'])) {
     $deptName = $_POST['deptName'];

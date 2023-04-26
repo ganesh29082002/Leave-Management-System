@@ -6,8 +6,9 @@ $conn = sql_conn();
 $email = $_GET['email'];
 $query = "DELETE FROM user WHERE email  = '$email'";
 $result = mysqli_query($conn, $query);
-if(isset($result)) 
-    echo "User Deleted Successfully!";
+if(isset($result)){
+    header("Location: http://localhost/Leave-Management-System/pages/SuperAdmin/manageEmployees.php");
+}
 else
-    echo "User Not Deleted!";
+    header("Location: http://localhost/Leave-Management-System/pages/SuperAdmin/manageEmployees.php");  
 ?>

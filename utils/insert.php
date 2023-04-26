@@ -7,7 +7,7 @@ if (isset($_POST['submit'])) {
     $userId = $_POST['userId'];
     $email = $_POST['email'];
     $fullname = $_POST['fullname'];
-    $deptId = $_POST['deptid'];
+    $deptId = $_POST['deptId'];
     $joining = $_POST['joining'];
     $staff = $_POST['staff'];
     $user = $_POST['user'];

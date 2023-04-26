@@ -8,7 +8,8 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/Staff_HomePage.css">
+    <link rel="stylesheet" href="../../css/sideNavbar_comman.css?v=<?php echo time();?>">
+    <link rel="stylesheet" href="../css/Staff_HomePage.css?v=<?php echo time(); ?>">
    </head>
 <body>
   <div class="sidebar">
@@ -38,7 +39,7 @@
        <span class="tooltip">Apply Leave</span>
      </li>
      <li>
-       <a href="#">
+       <a href="./staff_leave_history.php">
        <i class="fa-solid fa-building-user"></i>
          <span class="links_name">Leave Listory</span>
        </a>

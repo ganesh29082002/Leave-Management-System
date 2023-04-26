@@ -27,9 +27,8 @@ include('../../utils/ManageDepartmentUtils.php');
         <div class="manageUserMain">
             <h1 class="heading">Add New Department</h1>
             <form class="addUserDiv" action="../../utils/insertDept.php" method="POST">
-                <div class="rows"><label>Department Id: </label><input type="text" name="deptId"></div>
                 <div class="rows"><label>Department Name: </label><input type="text" name="deptName"></div>
-                <div class="rows"><label>Department HOD: </label><input type="text" name="deptHod"></div>
+                <div class="rows"><label>Department HOD Email: </label><input type="text" name="deptHodEmail"></div>
                 <input type="submit" name="submit" class="submitbtn">
             </form>
         </div>

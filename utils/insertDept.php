@@ -5,10 +5,13 @@ $conn = sql_conn();
 $deptId = $_GET['deptId'];
 
 if (isset($_POST['submit'])) {
-    $deptId = $_POST['deptId'];
     $deptName = $_POST['deptName'];
-    $deptHod = $_POST['deptHod'];
-    $query = "INSERT INTO department(deptId, deptName, deptHod) VALUES ('$deptId','$deptName','$deptHod')";
+    $deptHodEmail = $_POST['deptHodEmail'];
+    $query1 = "SELECT userId FROM user WHERE email = '$deptHodEmail'";
+    $result1 = mysqli_query($conn, $query1);
+    $row = mysqli_fetch_assoc($result1);
+    $deptHod = $row['userId'];
+    $query = "INSERT INTO department(deptName, deptHod) VALUES ('$deptName','$deptHod')";
     $result = mysqli_query($conn, $query);
     
     if ($result) {

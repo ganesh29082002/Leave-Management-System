@@ -31,7 +31,11 @@ body{
 .horizontal_navbar {
     width: 100%;
     height: 78px;
-    background: #11101D;
+    background: #191728;
+
+            /* old color */ 
+
+    /* background: #11101D;  */
     border-left: 1px solid wheat;
     color: white;
     display: flex;

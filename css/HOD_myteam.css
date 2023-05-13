@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.manageUserMain {
+    background-color: white;
+    margin: 40px 30px;
+    padding: 10px 0;
+    border-radius: 5px;
+    border-right: 7px solid #11101D;
+    padding-bottom: 25px;
+}
+
+.addUser {
+    background-color: #11101D;
+    padding: 4px 10px;
+    font-size: 20px;
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    margin: 0 2.5%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.addUser:hover {
+    transform: scale(1.02);
+}
+
+.User {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tablecontent {
+    width: 95%;
+}
+
+.tablecontent th {
+    padding: 5px;
+    background-color: #11101D;
+    color: white;
+}
+
+.tablecontent td {
+    text-align: center;
+    padding: 5px;
+}
+
+td img {
+    margin: 5px;
+}
+
+.edit {
+    font-size: large;
+}
+
+.edit, .delete {
+    color: #11101D;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: 500;
+    margin: 20px 30px;
+}
+

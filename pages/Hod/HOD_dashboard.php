@@ -18,6 +18,8 @@
     <?php
     include "../../includes/HOD_SideNavbar.php";
     include('../../includes/_db_conn.php');
+    include "../../includes/Authentication_verified.php";
+
     $conn = sql_conn();
     ?>
     <section class="home-section">
@@ -48,6 +50,34 @@
                         </div>
                     </div>
                 <?php } ?>
+               
+                <div class="col-md-3 col-sm-12  rounded-lg m-3 bg-white shadow-lg fit-content" style="border-right:6px solid #11101D ">
+                <a href="../Hod/HOD_myteam.php" style="color: #11101D; text-decoration:none">        
+                <div class="row p-2 pr-0 ">
+                            <!-- <div class="col-3 pl-3 pt-2   "><i class="fa-solid fa-users " style="font-size:25px; text-align: center;"></i></div> -->
+                            <div class="col-12  ">
+                                <div class="row pb-1 pl-2 d-flex justify-content-sm-center">
+                                    <h5 style="color: #11101D; text-decoration:none">My Team Member</h5>
+                                </div>
+                                <div class="row d-flex justify-content-sm-center ">
+                                    <!-- PHP CODE HERE -->
+         
+                                    <?php
+                                    $deptId= $_SESSION['deptId'] ;
+                                    $sql = "SELECT count(userId) FROM User where deptId = '$deptId' AND position ='FACULTY' ";
+                                    $res1 = mysqli_query($conn, $sql) or die("result failed in table");
+                                    $rowscount = mysqli_fetch_array($res1);
+                                      ?>
+                                    <h3><?php echo $rowscount['count(userId)']  ?> </h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row border-top p-2">
+                            <small class="text-muted" style="font-size: smaller;">Team Member Details</small>
+                        </div>
+                        </a>
+                    </div>
+                    
             </div>
         </div>
 
@@ -64,7 +94,10 @@
                         <table width="100%" class="table table-hover" id="dataTables-example">
                             
                              <!-- $db = mysqli_connect("localhost", "root", "", "") or die("connectiion Failed"); -->
-                            <?php $sql1 = "SELECT * FROM leavedetails Limit 5";
+                            <?php 
+                             $email=$_SESSION['email'] ;
+                    $sql1 = "SELECT * FROM leavedetails where userId = (SELECT userId FROM User where email = '$email') ";
+                           
                             $res = mysqli_query($conn, $sql1) or die("result failed in table");
                            
                             if (mysqli_num_rows($res) > 0) { ?>
@@ -74,7 +107,7 @@
                                         <th>From</th>
                                         <th>To</th>
                                         <th>Reason</th>
-                                        <th>Posting Date</th>
+                                        <th>Application Date</th>
                                         <th>Action</th>
                                         <th>Status</th>
                                     </tr>

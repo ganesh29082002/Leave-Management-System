@@ -16,10 +16,12 @@
 
 <body>
     <?php
-    include "../../includes/HOD_SideNavbar.php";
-    include('../../includes/_db_conn.php');
+    //  session_start();
     include "../../includes/Authentication_verified.php";
 
+    include "../../includes/HOD_SideNavbar.php";
+    include('../../includes/_db_conn.php');
+   
     $conn = sql_conn();
     ?>
     <section class="home-section">
@@ -129,7 +131,7 @@
                                             <a href="users.php?editid=<?php echo $row['userId'] ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
                                             <a href="users.php?sid=<?php echo $row['userId'] ?>" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></a>
                                         </td>
-                                        <td> Approved</td>
+                                        <td> Approved </td>
 
 
                                         

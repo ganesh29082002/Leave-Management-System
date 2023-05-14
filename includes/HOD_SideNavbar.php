@@ -52,7 +52,13 @@
        </a>
        <span class="tooltip">Leave Listory</span>
      </li>
-     
+     <li>
+       <a href="./HOD_requestPage.php">
+       <i class="fa-solid fa-code-pull-request"></i>
+         <span class="links_name">Staff Request</span>
+       </a>
+       <span class="tooltip">Staff Request</span>
+     </li>
      <li>
        <a href="#">
        <i class="fas fa-user-cog"></i>

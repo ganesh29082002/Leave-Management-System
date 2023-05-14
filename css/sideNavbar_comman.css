@@ -22,10 +22,7 @@
 }
 
 .sidebar.open{
-
   width: 250px;
-
-  
 }
 .sidebar.open .logo-details img{
   display: block;
@@ -266,7 +263,5 @@
   }
   .sidebar{
     z-index: 1;
-    
-    
   }
 }

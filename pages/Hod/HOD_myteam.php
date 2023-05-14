@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
     <?php 
     include "../../includes/HOD_SideNavbar.php";
     include('../../includes/_db_conn.php');
+    include "../../includes/Authentication_verified.php";
     $conn = sql_conn();
     ?>
 <section class="home-section">
@@ -19,23 +21,25 @@
             <h1 class="Heading_Heder ml-3"> Bajaj Institute Technology Wardha</h1>
         </div>
         <div class="manageUserMain">
-            <h1 class="heading">Manage Employees</h1>
+            <h1 class="heading">My Team</h1>
             <div class="User">
-                
+             
                 <table class="tablecontent">
-                    <?php $sql1 = "SELECT * FROM leavedetails Limit 5";
+                    <?php 
+                    $deptId= $_SESSION['deptId'] ;
+                    $sql1 = "SELECT * FROM User where deptId = '$deptId' AND position ='FACULTY' ";
                     $res = mysqli_query($conn, $sql1) or die("result failed in table");
 
                     if (mysqli_num_rows($res) > 0) { ?>
                         <thead>
                             <tr>
-                                <th>Leave Type</th>
-                                <th>From</th>
-                                <th>To</th>
-                                <th>Reason</th>
-                                <th>Posting Date</th>
-                                <th>Action</th>
-                                <th>Status</th>
+                                <th>UserID</th>
+                                <th>Full Name</th>
+                                <th>Email</th>
+                                <th>Potion</th>
+                                <th>Joining Date</th>
+                                <th>View Details</th>
+                               
                             </tr>
                         </thead>
                     <?php } ?>
@@ -45,17 +49,18 @@
                         while ($row = mysqli_fetch_assoc($res)) {
                         ?>
                             <tr>
-                                <td> <?php echo $row['leaveType']  ?> </td>
-                                <td><?php echo $row['startDate'] ?> </td>
-                                <td><?php echo $row['endDate'] ?></td>
-                                <td><?php echo $row['reason'] ?></td>
+                                <td> <?php echo $row['userId']  ?> </td>
+                                <td><?php echo $row['fullName'] ?></td>
+                                <td><?php echo $row['email'] ?> </td>
+                                <td><?php echo $row['position'] ?></td>
+                                <td><?php echo $row['joiningDate'] ?></td>
 
-                                <td><?php echo $row['dateTime'] ?></td>
-                                <td class="text-end">
-                                    <a href="users.php?editid=<?php echo $row['userId'] ?>"><i class="fa-solid fa-pen-to-square edit"></i></a>
-                                    <a href="users.php?sid=<?php echo $row['userId'] ?>"><i style="margin-left: 5px;" class="fa-solid fa-trash delete"></i></a>
-                                </td>
-                                <td> Approved</td>
+
+                               
+                                <td class="text-end"> 
+                                 <a href="users.php?editid=<?php echo $row['userId'] ?>"><i class="fa-solid fa-pen-to-square edit"></i> View Details</a>
+                                 </td>
+                                <!-- <td> Approved</td> -->
                             </tr>
                         <?php } ?>
                     </tbody>

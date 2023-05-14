@@ -23,7 +23,7 @@ include "../../includes/Authentication_verified.php"
 <body>
 
   <?php
-  include "../../includes/HOD_SideNavbar.php";
+    include "../../includes/HOD_SideNavbar.php";
   include('../../includes/_db_conn.php');
   $conn = sql_conn();
   ?>

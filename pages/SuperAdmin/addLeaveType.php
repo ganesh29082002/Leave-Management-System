@@ -19,15 +19,11 @@ include('../../utils/_leave_admin_.class.php');
 
 <body>
     <?php
-    include "../../includes/leave_admin_SideNavbar.php";
+    include "../../includes/super_admin_SideNavbar.php";
     ?>
     <section class="home-section">
         <div class="horizontal_navbar">
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
-            <a href="#">
-                <i class="fas fa-id-card-alt"></i>
-                <!-- <span class="tooltip">User</span> -->
-            </a>
         </div>
         <div class="manageUserMain">
 
@@ -38,7 +34,7 @@ include('../../utils/_leave_admin_.class.php');
                 <div class="rows"><label>Leave Type ( Leave Name ): </label><input type="text" name="leaveType"></div>
                 <div class="rows"><label>Leave Interval ( in months ) </label><input type="number" name="leaveInterval"></div>
                 <div class="rows"><label>Leave Increment </label><input type="number" name="increment"></div>
-                <div class="rows"><label>Leave Description</label><textarea type="text"  height="300px" width="200px" name="leaveDesc" ></textarea></div>
+                <div class="rows"><label>Leave Description</label><textarea type="text" height="300px" width="200px" name="leaveDesc"></textarea></div>
                 <input type="submit" name="submit" class="submitbtn">
 
             </form>

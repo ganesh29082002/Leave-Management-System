@@ -1,6 +1,11 @@
 <?php
 
-include('../../utils/ManageDepartmentUtils.php');
+//  Connect database 
+
+define( "DB" , "bit_leave_management_system");
+require ('../../includes/_db_conn.php');
+$conn = sql_conn()
+// include('../../utils/ManageDepartmentUtils.php');
 
 ?>
 
@@ -42,10 +47,23 @@ include('../../utils/ManageDepartmentUtils.php');
                     </thead>
                     <tbody id="tbody">
                         <?php
-                        $query1 = "SELECT * FROM department";
-                        $result = mysqli_query($conn, $query1);
+
+                        $query1 = "SELECT * FROM department ";
+
+                        try {
+                            $result = mysqli_query($conn, $query1);
+                            // $result =  mysqli_fetch_array($result);
+                        } catch ( mysqli_sql_exception $e ) {
+                            var_dump($e);
+                            exit; 
+                        }
+
+                        
+
                         foreach ($result as $cols) {
+
                             $userid = $cols['deptHod'];
+
                             $query1 = "SELECT fullName FROM user WHERE userId = $userid";
                             $result1 = mysqli_query($conn, $query1);
                             $row = mysqli_fetch_assoc($result1);

@@ -101,7 +101,7 @@
         public static function getTotalTeachingStaff() {
 
             // SQL Query to get the count of all Leave Types
-            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'Teaching'";
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'TEACHING_STAFF'";
 
 
             $conn = sql_conn();
@@ -121,7 +121,7 @@
         public static function getTotalNonTeachingStaff() {
 
             // SQL Query to get the count of all Leave Types
-            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'Non-Teaching'";
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'NON_TEACHING_STAFF'";
 
 
             $conn = sql_conn();

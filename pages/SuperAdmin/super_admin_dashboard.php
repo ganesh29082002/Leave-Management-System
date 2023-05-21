@@ -59,7 +59,7 @@ include('../../utils/_super_admin_.class.php');
                                 <h5> Total Department</h5>
                             </div>
                             <div class="row d-flex justify-content-sm-center">
-                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalLeaveTypes()[0] . "</p>" ?> </h5>
+                                <h5> <?php echo  "<p class='stats' >" . SuperAdmin::getTotalDepartment()[0] . "</p>" ?> </h5>
                             </div>
                         </div>
                     </div>

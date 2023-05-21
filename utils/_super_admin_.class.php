@@ -131,6 +131,21 @@
             return $rows;
 
         }
+
+        public static function getTotakDeactivatedStaff(){
+
+            // SQL Query to get the count of all Leave Types
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'DEACTIVATED'";
+
+
+            $conn = sql_conn();
+            $result =  mysqli_query( $conn , $sql);
+            $rows = mysqli_fetch_array($result); // Response
+
+            return $rows;
+
+
+        }
     
     }
 

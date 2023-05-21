@@ -58,8 +58,8 @@ include('../../utils/_leave_admin_.class.php');
                             echo "<td>" . $cols['leaveDesc'] . "</td>";
                             echo "<td>" . $cols['leaveInterval'] . "  Month </td>";
                             echo "<td>" . $cols['increment'] . "  Leaves </td>";
-                            echo "<td><a href='../../pages/LeaveAdmin/masterData_edit.php?email=$cols[leaveId]' name='edit'><img src= ../../assets/edit.png width='24px' height='24px'> </a></td>";
-                            echo "<td><a href='../../utils/delete.php?email=$cols[leaveId]' name='delete'><img src= ../../assets/delete.png width='24px' height='24px'> </a></td>";
+                            echo "<td><a href='../../pages/SuperAdmin/masterData_edit.php?leaveId=$cols[leaveId]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
+                            echo "<td><a href='../../utils/deleteLeaveId.php?leaveId=$cols[leaveId]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
                             echo "</tr>";
                         }
                         ?>

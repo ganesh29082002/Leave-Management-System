@@ -37,8 +37,6 @@ include('../../utils/_leave_admin_.class.php');
 
             <div class="User">
 
-
-
             </div>
 
 
@@ -47,11 +45,12 @@ include('../../utils/_leave_admin_.class.php');
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <script>
+
         document.getElementById('manageUserSearchBar').addEventListener('keypress', (e) => {
 
             if (e.key == 'Enter') handleSearch(e);
-
 
         })
 
@@ -80,6 +79,9 @@ include('../../utils/_leave_admin_.class.php');
 
 
         }
+
+
+
     </script>
 
 </body>

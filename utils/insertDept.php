@@ -15,6 +15,7 @@ else {
 }
 
 if (isset($_POST['submit'])) {
+
     $deptName = $_POST['deptName'];
     $deptHodEmail = $_POST['deptHodEmail'];
     $query1 = "SELECT userId FROM user WHERE email = '$deptHodEmail'";

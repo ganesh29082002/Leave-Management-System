@@ -101,7 +101,7 @@
         public static function getTotalTeachingStaff() {
 
             // SQL Query to get the count of all Leave Types
-            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'Teaching'";
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'TEACHING_STAFF'";
 
 
             $conn = sql_conn();
@@ -121,7 +121,7 @@
         public static function getTotalNonTeachingStaff() {
 
             // SQL Query to get the count of all Leave Types
-            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'Non-Teaching'";
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'NON_TEACHING_STAFF'";
 
 
             $conn = sql_conn();
@@ -129,6 +129,21 @@
             $rows = mysqli_fetch_array($result); // Response
 
             return $rows;
+
+        }
+
+        public static function getTotakDeactivatedStaff(){
+
+            // SQL Query to get the count of all Leave Types
+            $sql = "SELECT COUNT(userID) FROM " .DB. ".user where userType = 'DEACTIVATED'";
+
+
+            $conn = sql_conn();
+            $result =  mysqli_query( $conn , $sql);
+            $rows = mysqli_fetch_array($result); // Response
+
+            return $rows;
+
 
         }
     

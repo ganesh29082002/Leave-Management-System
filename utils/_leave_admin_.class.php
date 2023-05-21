@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($conn, $query);
     
     if ($result) {
-        // header("location: ../../pages/LeaveAdmin/manageMasterData.php");
+        header("location: ../../pages/SuperAdmin/manageMasterData.php");
         exit(0);
     } else {
         echo "User Not Added!";

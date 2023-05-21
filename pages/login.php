@@ -64,8 +64,8 @@
 
 
                         if (userData.position === "ADMIN") window.location.href = '/Leave-Management-System/pages/SuperAdmin/super_admin_dashboard.php'
-                        else if (userData.position === "FACULTY") window.location.href = '/Leave-Management-System/pages/Staff/Staff_dashboard.php'
-                        else if (userData.position === "HOD") window.location.href = '/Leave-Management-System/pages/Hod/HOD_dashboard.php'
+                       else if (userData.position === "FACULTY") window.location.href = '/Leave-Management-System/pages/Staff/Staff_dashboard.php'
+                       else if (userData.position === "HOD") window.location.href = '/Leave-Management-System/pages/Hod/HOD_dashboard.php'
  
                     },
                     error: function (jqXHR, textStatus, errorThrown) {

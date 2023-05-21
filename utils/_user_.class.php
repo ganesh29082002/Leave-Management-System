@@ -125,14 +125,6 @@
 
 ?>
 
-<?php 
-
-
-   
-
-
-?>
-
 <?php
 
     if( isset( $_POST['function'] )  ){ //Check whether Function exists or not
@@ -149,10 +141,11 @@
 
                 $tableRows = $tableRows.
                 " <tr>
-                    <form method='post' action='manageLeaves.php' >
+                    <form method='post' action='../pages/SuperAdmin/editLeaves.php' >
                         <td> ". $row['leaveType'] . "</td>
-                        <td> ". $row['Balance'] . "</td>
-                        <td> <button class='btn manageBtn' > Manage </button> </td>
+                        <td> ". $row['balance'] . "</td>
+                        <td> ". $row['lastUpdatedOn'] . "</td>
+                        <td><a href='../../pages/SuperAdmin/editLeaves.php?userId=" . $row['userId'] . "&leaveId=" . $row['leaveId'] . "' name='manage' class='btn' > Manage </a></td>
                     </form>
                 </tr>";
 
@@ -165,7 +158,8 @@
             <thead>
             <tr>
             <th>LEAVE TYPE</th>
-            <th>Balance</th>
+            <th>BALANCE</th>
+            <th>LAST UPDATED ON</th>
             <th></th>
             </tr>
             </thead>

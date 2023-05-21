@@ -19,21 +19,17 @@ include('../../utils/_leave_admin_.class.php');
 
 <body>
     <?php
-    include "../../includes/leave_admin_SideNavbar.php";
+    include "../../includes/super_admin_SideNavbar.php";
     ?>
     <section class="home-section">
         <div class="horizontal_navbar">
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
-            <a href="#">
-                <i class="fas fa-id-card-alt"></i>
-                <!-- <span class="tooltip">User</span> -->
-            </a>
         </div>
         <div class="manageUserMain">
 
             <h1 class="heading">Manage Master Data</h1>
 
-            <a href="../../pages/LeaveAdmin/addLeaveType.php"><button class="addUser">+</button></a>
+            <a href="../../pages/SuperAdmin/addLeaveType.php"><button class="addUser">+</button></a>
 
             <div class="User">
 
@@ -69,7 +65,7 @@ include('../../utils/_leave_admin_.class.php');
                         ?>
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </section>

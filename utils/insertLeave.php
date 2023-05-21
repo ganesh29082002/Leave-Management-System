@@ -54,6 +54,18 @@ if (isset($_POST['submit'])) {
   $result2 = mysqli_query($conn, $query2);
   echo $query1;
   echo $query2;
+
+  $to = "$adjustedWith";
+  $subject = "My subject";
+  $txt = "Hello sir";
+  $sender = "From:  $email";
+  
+  
+  // mail($to,$subject,$txt,$sender);
+  
+  if(mail($to,$subject,$txt,$sender)){
+      echo "send email";
+  }
 }
 echo "Hello";
 ?>

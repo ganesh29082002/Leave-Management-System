@@ -151,7 +151,8 @@
                 " <tr>
                     <form method='post' action='manageLeaves.php' >
                         <td> ". $row['leaveType'] . "</td>
-                        <td> ". $row['Balance'] . "</td>
+                        <td> ". $row['balance'] . "</td>
+                        <td> ". $row['lastUpdatedOn'] . "</td>
                         <td> <button class='btn manageBtn' > Manage </button> </td>
                     </form>
                 </tr>";
@@ -165,7 +166,8 @@
             <thead>
             <tr>
             <th>LEAVE TYPE</th>
-            <th>Balance</th>
+            <th>BALANCE</th>
+            <th>LAST UPDATED ON</th>
             <th></th>
             </tr>
             </thead>

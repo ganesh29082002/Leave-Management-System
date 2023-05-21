@@ -63,11 +63,11 @@
         <span class="tooltip">Manage Leaves</span>
       </li>
       <li>
-        <a href="#">
-          <i class="fas fa-user-cog"></i>
-          <span class="links_name">Settings</span>
+        <a href="../../pages/SuperAdmin/manageHolidays.php">
+          <i class="fas fa-calendar"></i>
+          <span class="links_name">Manage Holidays</span>
         </a>
-        <span class="tooltip">Settings</span>
+        <span class="tooltip">Manage Holidays</span>
       </li>
       <li class="profile">
         <div class="profile-details">

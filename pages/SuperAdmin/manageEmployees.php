@@ -35,20 +35,26 @@ include('../../utils/ManageUserUtils.php');
                             <th>SR NO.</th>
                             <th>FULL NAME</th>
                             <th>EMAIL</th>
+                            <th>USER TYPE</th>
+                            <th>POSITION</th>
                             <th>JOINING DATE</th>
                             <th>EDIT</th>
-                            <th>DELETE</th>
+                            <th>DEACTIVE</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">
                         <?php
-                        $query1 = "select * from User WHERE userType='Teaching'";
+
+                        $query1 = "select * from user ORDER BY userType DESC";
                         $result = mysqli_query($conn, $query1);
+
                         foreach ($result as $cols) {
                             echo "<tr>";
                             echo "<td>" . $cols['userId'] . "</td>";
                             echo "<td>" . $cols['fullName'] . "</td>";
                             echo "<td>" . $cols['email'] . "</td>";
+                            echo "<td>" . $cols['userType'] . "</td>";
+                            echo "<td>" . $cols['position'] . "</td>";
                             echo "<td>" . $cols['joiningDate'] . "</td>";
                             echo "<td><a href='../../pages/SuperAdmin/edit.php?email=$cols[email]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
                             echo "<td><a href='../../utils/delete.php?email=$cols[email]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";

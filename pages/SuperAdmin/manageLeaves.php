@@ -20,16 +20,12 @@ include('../../utils/_leave_admin_.class.php');
 
 <body>
     <?php
-    include "../../includes/leave_admin_SideNavbar.php";
+    include "../../includes/super_admin_SideNavbar.php";
     ?>
     <section class="home-section">
 
         <div class="horizontal_navbar">
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
-            <a href="#">
-                <i class="fas fa-id-card-alt"></i>
-                <!-- <span class="tooltip">User</span> -->
-            </a>
         </div>
 
         <div class="manageUserMain">
@@ -41,8 +37,6 @@ include('../../utils/_leave_admin_.class.php');
 
             <div class="User">
 
-
-
             </div>
 
 
@@ -51,12 +45,12 @@ include('../../utils/_leave_admin_.class.php');
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
     <script>
 
         document.getElementById('manageUserSearchBar').addEventListener('keypress', (e) => {
 
             if (e.key == 'Enter') handleSearch(e);
-
 
         })
 
@@ -68,20 +62,25 @@ include('../../utils/_leave_admin_.class.php');
             $.ajax({
                 url: "../../utils/_user_.class.php",
                 type: "post",
-                data: { function: "getUserLeaveData", email },
-                success: function (response) {
+                data: {
+                    function: "getUserLeaveData",
+                    email
+                },
+                success: function(response) {
 
                     document.querySelector('.User').innerHTML = response
 
 
                 },
-                error: function (jqXHR, textStatus, errorThrown) {
+                error: function(jqXHR, textStatus, errorThrown) {
                     console.log(textStatus, errorThrown);
                 }
             });
 
 
         }
+
+
 
     </script>
 

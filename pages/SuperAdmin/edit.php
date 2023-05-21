@@ -2,6 +2,7 @@
 
 include('../../utils/ManageUserUtils.php');
 include('../../utils/EditUserUtils.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -58,8 +59,9 @@ include('../../utils/EditUserUtils.php');
           <div class="form-group col-md-6">
           <select name="staff" class="form-control bg-white border-top-0 border-right-0 border-left-0  border border-dark">
                     <option value="Not Selected" selected disabled hidden>Staff Type</option>
-                    <option value="Teaching">Teaching</option>
-                    <option value="Non Teaching">Non Teaching</option>
+                    <option value="TEACHING_STAFF">TEACHING_STAFF</option>
+                    <option value="NON_TEACHING_STAFF">NON_TEACHING_STAFF</option>
+                    <option value="DEACTIVATED">DEACTIVATED</option>
                 </select>
           </div>
 
@@ -70,10 +72,10 @@ include('../../utils/EditUserUtils.php');
           <div class="form-group col-md-6">
                 <select name="position" class="form-control bg-white border-top-0 border-right-0 border-left-0  border border-dark">
                     <option value="Not Selected" selected disabled hidden>Select Position</option>
+                    <option value="PRINCIPAL">PRINCIPAL</option>
                     <option value="HOD">HOD</option>
                     <option value="FACULTY">FACULTY</option>
-                    <option value="LEAVE_ADMIN">LEAVE_ADMIN</option>
-                    <option value="SUPER_ADMIN">SUPER_ADMIN</option>
+                    <option value="ADMIN">ADMIN</option>
                 </select>
             </div>
 

@@ -4,6 +4,7 @@ include ('../includes/_db_conn.php');
 $conn = sql_conn();
 
 if (isset($_POST['submit'])) {
+    
     $email = $_POST['email'];
     $fullname = $_POST['fullname'];
     $deptId = $_POST['deptId'];

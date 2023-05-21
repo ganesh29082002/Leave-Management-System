@@ -5,7 +5,6 @@
 define( "DB" , "bit_leave_management_system");
 require ('../../includes/_db_conn.php');
 $conn = sql_conn()
-// include('../../utils/ManageDepartmentUtils.php');
 
 ?>
 
@@ -32,23 +31,21 @@ $conn = sql_conn()
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
         </div>
         <div class="manageUserMain">
-            <h1 class="heading">Manage Departments</h1>
-            <a href="../../pages/SuperAdmin/addDept.php"><button class="addUser">+</button></a>
+            <h1 class="heading">Manage Holidays</h1>
+            <a href="../../pages/SuperAdmin/addHoliday.php"><button class="addUser">+</button></a>
             <div class="User">
                 <table class="tablecontent">
                     <thead>
                         <tr>
-                            <th>DEPARTMENT ID</th>
-                            <th>DEPARTMENT NAME</th>
-                            <th>DEPARTMENT HOD</th>
-                            <th>EDIT</th>
+                            <th>HOLIDAY NAME</th>
+                            <th>DATE</th>
                             <th>DELETE</th>
                         </tr>
                     </thead>
                     <tbody id="tbody">
                         <?php
 
-                        $query1 = "SELECT * FROM department ";
+                        $query1 = "SELECT * FROM holidays";
 
                         try {
                             $result = mysqli_query($conn, $query1);
@@ -58,31 +55,14 @@ $conn = sql_conn()
                             exit; 
                         }
 
-                        
-
                         foreach ($result as $cols) {
 
-                            $userid = $cols['deptHod'];
-
-                             if ($userid == 0) {
-                                $hodName = 'Null';
-                             }
-                             else{
-
-                                 
-                                $query1 = "SELECT fullName FROM user WHERE userId = $userid";
-                                $result1 = mysqli_query($conn, $query1);
-                                $row = mysqli_fetch_assoc($result1);
-                                $hodName = $row['fullName'];
-                            }
-
                             echo "<tr>";
-                            echo "<td>" . $cols['deptId'] . "</td>";
-                            echo "<td>" . $cols['deptName'] . "</td>";
-                            echo "<td>" . $hodName . "</td>";
-                            echo "<td><a href='../../pages/SuperAdmin/editDept.php?deptId=$cols[deptId]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
-                            echo "<td><a href='../../utils/deleteDept.php?deptId=$cols[deptId]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
+                            echo "<td>" . $cols['holidayName'] . "</td>";
+                            echo "<td>" . $cols['date'] . "</td>";
+                            echo "<td><a href='../../utils/deleteHoliday.php?date=$cols[date]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
                             echo "</tr>";
+
                         }
                         ?>
                     </tbody>

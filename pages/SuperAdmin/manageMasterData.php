@@ -19,21 +19,17 @@ include('../../utils/_leave_admin_.class.php');
 
 <body>
     <?php
-    include "../../includes/leave_admin_SideNavbar.php";
+    include "../../includes/super_admin_SideNavbar.php";
     ?>
     <section class="home-section">
         <div class="horizontal_navbar">
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
-            <a href="#">
-                <i class="fas fa-id-card-alt"></i>
-                <!-- <span class="tooltip">User</span> -->
-            </a>
         </div>
         <div class="manageUserMain">
 
             <h1 class="heading">Manage Master Data</h1>
 
-            <a href="../../pages/LeaveAdmin/addLeaveType.php"><button class="addUser">+</button></a>
+            <a href="../../pages/SuperAdmin/addLeaveType.php"><button class="addUser">+</button></a>
 
             <div class="User">
 
@@ -62,14 +58,14 @@ include('../../utils/_leave_admin_.class.php');
                             echo "<td>" . $cols['leaveDesc'] . "</td>";
                             echo "<td>" . $cols['leaveInterval'] . "  Month </td>";
                             echo "<td>" . $cols['increment'] . "  Leaves </td>";
-                            echo "<td><a href='../../pages/LeaveAdmin/masterData_edit.php?email=$cols[leaveId]' name='edit'><img src= ../../assets/edit.png width='24px' height='24px'> </a></td>";
-                            echo "<td><a href='../../utils/delete.php?email=$cols[leaveId]' name='delete'><img src= ../../assets/delete.png width='24px' height='24px'> </a></td>";
+                            echo "<td><a href='../../pages/SuperAdmin/masterData_edit.php?leaveId=$cols[leaveId]' name='edit'><i class='fa-solid fa-pen-to-square edit'></i></a></td>";
+                            echo "<td><a href='../../utils/deleteLeaveId.php?leaveId=$cols[leaveId]' name='delete'><i class='fa-solid fa-trash delete'></i></a></td>";
                             echo "</tr>";
                         }
                         ?>
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </section>

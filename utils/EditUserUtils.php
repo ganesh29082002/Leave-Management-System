@@ -1,6 +1,7 @@
 <?php
 $email = $_GET['email'];
 $query = "SELECT * FROM user WHERE email = '$email'";
+
 $result = mysqli_query($conn, $query);
 $row = mysqli_fetch_assoc($result);
 $emailval = $row['email'];

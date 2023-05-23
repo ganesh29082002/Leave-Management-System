@@ -15,7 +15,6 @@ include "../../includes/Authentication_verified.php"
   <!-- <link rel="stylesheet" href="../../css/Staff_dashboard.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="../../js/StaffScript.js"></script>
 </head>
@@ -57,7 +56,7 @@ include "../../includes/Authentication_verified.php"
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <select id="inputState" name="leaveType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark" name="leaveType">
+            <select id="inputState" name="leaveType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark" data-toggle="tooltip" data-placement="top" title="Select Leave Type"name="leaveType">
               <option selected disable>Choose Leave Type</option>
               <?php $sql1 = "SELECT * FROM masterdata";
               $res = mysqli_query($conn, $sql1) or die("result failed in table");
@@ -72,7 +71,7 @@ include "../../includes/Authentication_verified.php"
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
-            <input type="text" name="fromDate" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="To">
+            <input type="text" name="fromDate" data-toggle="tooltip" data-placement="top" title="Start Leave Date" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="To">
 
           </div>
           <div class="form-group col-md-2">
@@ -83,7 +82,7 @@ include "../../includes/Authentication_verified.php"
             </select>
           </div>
           <div class="form-group col-md-3">
-            <input type="text" name="toDate" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="To">
+            <input type="text" name="toDate" data-toggle="tooltip" data-placement="top" title="End Leave Date" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="To">
           </div>
           <div class="form-group col-md-2">
             <select id="inputState" name="toType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark">
@@ -93,7 +92,7 @@ include "../../includes/Authentication_verified.php"
             </select>
           </div>
           <div class="form-group col-md-2">
-            <input type="number" name="totalDays" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="Total Days">
+            <input type="number" name="totalDays" data-toggle="tooltip" data-placement="top" title="Total Leave Days" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" placeholder="Total Days">
           </div>
         </div>
 
@@ -132,10 +131,60 @@ include "../../includes/Authentication_verified.php"
             <button class=" btn" id="add" name="btn[]" style="background-color: #11101D; color:white">Add</button>
           </div>
         </div>
+
+        <!-- Task Adjustment -->
+
+        <div class="form-row" id="dynamicadd1">
+          <div class="form-group col-md-3">
+            <select id="inputState" name="adjustedWith1" class="form-control border-top-0 border-right-0 border-left-0 border border-dark">
+              <option selected disable>Task Adjust With.. </option>
+              <?php $sql1 = "SELECT * FROM user";
+              $res = mysqli_query($conn, $sql1) or die("result failed in table");
+              while ($row = mysqli_fetch_assoc($res)) { ?> 
+                <option><?php echo $row['email'] ?></option>
+
+              <?php } ?>
+            </select>
+
+          </div>
+          <div class="form-group col-md-3">
+            <input type="text" name="sem" placeholder="Task Name" class="form-control border-top-0 border-right-0 border-left-0  border border-dark">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="text" name="lecDate" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="From" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4">
+          </div>
+          <div class="form-group col-md-2">
+            <input type="text" name="lecDate" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="To" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4">
+          </div>
+          <div class="form-group col-sm-12 col-md-1">
+            <button class=" btn" id="add1" name="btn1[]" style="background-color: #11101D; color:white">Add</button>
+          </div>
+        </div>
         <button type="submit" name="submit" class="btn mt-2" style="background-color: #11101D; color: white;">Apply</button>
       </form>
     </div>
   </section>
 </body>
+<script>
+ $(document).ready(function(){
+ var i = 1,j=1001;
+ $('#add').click(function(e){
+ alert('Want to Adjust Lecture');
+ e.preventDefault();
+ i++;
+ $('#dynamicadd').append('<div class="form-row" id="form-row'+i+'"><div class="form-group col-md-3"> <select id="inputState" name="adjustedWith" class="form-control border-top-0 border-right-0 border-left-0 border border-dark"><option selected disable>Lecture Adjust With.. </option><?php $sql1 = "SELECT * FROM user";$res = mysqli_query($conn, $sql1) or die("result failed in table");while ($row = mysqli_fetch_assoc($res)) { ?> <option><?php echo $row['email'] ?></option><?php } ?></select></div><div class="form-group col-md-2"><input type="text" onfocus="(this.type="date")" onblur="(this.type="text")"   placeholder="Lecture Date" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" > </div><div class="form-group col-md-2"><input type="text" onfocus="(this.type="date")" onblur="(this.type="text")"  placeholder="start Time" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" ></div><div class="form-group col-md-2"><input type="text"  onfocus="(this.type="time")"onblur="(this.type="text")" placeholder="End Time" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4" ></div> <div class="form-group col-md-2"> <input type="text" name="lecture[]" placeholder="Subject" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4"></div><div class="form-group col-sm-12 col-md-1"><button type="button" id="'+j+'" class="btn btn-danger remove_row">-</button></div> </div>');
+ });
+ $('#add1').click(function(e){
+ alert('Want to Adjust Lecture');
+ e.preventDefault();
+ j++;
+ $('#dynamicadd1').append('<div class="form-row" id="form-row'+j+'"><div class="form-group col-md-3"><select id="inputState" name="adjustedWith1" class="form-control border-top-0 border-right-0 border-left-0 border border-dark"><option selected disable>Task Adjust With.. </option><?php $sql1 = "SELECT * FROM user";$res = mysqli_query($conn, $sql1) or die("result failed in table");while ($row = mysqli_fetch_assoc($res)) { ?> <option><?php echo $row['email'] ?></option><?php } ?></select></div><div class="form-group col-md-3"><input type="text" name="sem" placeholder="Task Name" class="form-control border-top-0 border-right-0 border-left-0  border border-dark"></div><div class="form-group col-md-2"><input type="text" name="lecDate" onfocus="(this.type="date")" onblur="(this.type="text")" placeholder="From" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4"></div><div class="form-group col-md-2"><input type="text" name="lecDate" onfocus="(this.type="date")" onblur="(this.type="text")" placeholder="To" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="inputPassword4"></div><div class="form-group col-sm-12 col-md-1"><button type="button" id="'+j+'" class="btn btn-danger remove_row">-</button></div> </div>');
+ });
+ $(document).on('click','.remove_row',function(){
+ var row_id = $(this).attr("id");
+ $('#form-row'+row_id+'').remove();
+ });
+ });
+</script>
 
 </html>

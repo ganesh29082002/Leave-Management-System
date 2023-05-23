@@ -48,9 +48,9 @@
      <li>
        <a href="./HOD_leave_history.php">
        <i class="fa-solid fa-building-user"></i>
-         <span class="links_name">Leave Listory</span>
+         <span class="links_name">Leaves Applied</span>
        </a>
-       <span class="tooltip">Leave Listory</span>
+       <span class="tooltip">Leaves Applied</span>
      </li>
      <li>
        <a href="./HOD_requestPage.php">

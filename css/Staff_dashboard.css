@@ -9,22 +9,25 @@
 /*  */
 
 @media screen and (max-width: 600px) {
-    .horizontal_navbar{
+    .horizontal_navbar {
         height: 60px;
     }
-    .Heading_Heder{
+
+    .Heading_Heder {
         font-size: 15px;
         font-weight: 400;
         word-wrap: normal;
-       }
-       .sidebar .logo-details img{
+    }
+
+    .sidebar .logo-details img {
         height: 26px;
         width: 26px;
         margin-right: 5px;
     }
+
     .horizontal_navbar a i {
         color: white;
         font-size: 15px;
         margin: 8px;
     }
-  }
+}

@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="../../css/common.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../../css/manageUser.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../../css/leaveHistory.css?v=<?php echo time(); ?>">
     <link rel="stylesheet" href="../../css/Staff_dashboard.css">
     <script src="https://kit.fontawesome.com/65712a75e6.js" crossorigin="anonymous"></script>
 </head>
@@ -25,7 +26,7 @@
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
         </div>
         <div class="manageUserMain">
-            <h1 class="heading">Leave History</h1>
+            <h1 class="heading">Leaves Applied</h1>
             <div class="User">
                 
                 <table class="tablecontent">
@@ -33,19 +34,16 @@
                     $email=$_SESSION['email'] ;
                     // $deptId= $_SESSION['deptId'] ;
                     // $sql1 = "SELECT userId FROM User where email = '$email' ";
-                    $sql1 = "SELECT * FROM leavedetails where userId = (SELECT userId FROM User where email = '$email') ";
+                    $sql1 = "SELECT * FROM leavedetails where userId IN (SELECT userId FROM user where deptId = '$_SESSION[deptId]') AND status = 'PENDING'";
                     $res = mysqli_query($conn, $sql1) or die("result failed in table");
 
                     if (mysqli_num_rows($res) > 0) { ?>
                         <thead>
                             <tr>
+                                <th>Applicant Name</th>
                                 <th>Leave Type</th>
-                                <th>From</th>
-                                <th>To</th>
-                                <th>Reason</th>
-                                <th>Posting Date</th>
-                                <th>Action</th>
                                 <th>Status</th>
+                                <th>View Details</th>
                             </tr>
                         </thead>
                     <?php } ?>
@@ -53,23 +51,21 @@
                     <tbody id="tbody">
                         <?php
                         while ($row = mysqli_fetch_assoc($res)) {
+                            $name = $row['userId'];
+                            $fetch_name = "SELECT fullName FROM user WHERE userId = $name;";
+                            $fetch_name_result = mysqli_query($conn, $fetch_name);
+                            $fetched_name_row = mysqli_fetch_assoc($fetch_name_result);
                         ?>
                             <tr>
-                                <td> <?php echo $row['leaveType']  ?> </td>
-                                <td><?php echo $row['startDate'] ?> </td>
-                                <td><?php echo $row['endDate'] ?></td>
-                                <td><?php echo $row['reason'] ?></td>
-
-                                <td><?php echo $row['dateTime'] ?></td>
+                                <td><?php echo $fetched_name_row['fullName']  ?> </td>
+                                <td><?php echo $row['leaveType']  ?> </td>
+                                <td><?php echo $row['status'] ?></td>
                                 <td class="text-end">
-                                    <a href="users.php?editid=<?php echo $row['userId'] ?>"><i class="fa-solid fa-pen-to-square edit"></i></a>
-                                    <a href="users.php?sid=<?php echo $row['userId'] ?>"><i style="margin-left: 5px;" class="fa-solid fa-trash delete"></i></a>
+                                    <a href="HOD_leave_approval.php?id=<?php echo $row['leaveInsId']?>"><i class="fa-solid fa-eye view"></i></a>
                                 </td>
-                                <td> Approved</td>
                             </tr>
                         <?php } ?>
                     </tbody>
-                </table>
                 </table>
             </div>
         </div>

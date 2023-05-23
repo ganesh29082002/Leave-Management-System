@@ -15,6 +15,7 @@ if (isset($_POST['submit'])) {
   $lecDate = $_POST['lecDate'];
   $lecStartTime = $_POST['lecStartTime'];
   $lecEndTime = $_POST['lecEndTime'];
+
   $sem = $_POST['sem'];
   $subject = $_POST['subject'];
   $sql = "SELECT * FROM leavedetails";
@@ -32,7 +33,7 @@ if (isset($_POST['submit'])) {
   $result1 = mysqli_query($conn, $query1);
   $row = mysqli_fetch_assoc($result1);
   $userId = $row['userId'];
-  $query = "INSERT INTO leavedetails VALUES($leaveInsId, $userId, 'Pending' '$date', '$leaveType', '$fromDate', '$fromType', '$toDate', '$toType', $totalDays, 'Sick', 0, 0)";
+  $query = "INSERT INTO leavedetails VALUES($leaveInsId, $userId, 'Pending' '$date', '$leaveType', '$fromDate', '$fromType', '$toDate', '$toType', $totalDays, 'Sick')";
   $resultLeave = mysqli_query($conn, $query) or die('die in details');
   $sql = "SELECT * FROM lectureadjustment";
   $result = mysqli_query($conn, $sql);

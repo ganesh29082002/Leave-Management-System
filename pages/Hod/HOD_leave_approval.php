@@ -46,7 +46,7 @@
                         <p><label>To: </label><span><?php echo $fecth_row_query['endDate'] ?></span></p>
                         <p><span><?php echo $fecth_row_query['endDateType'] ?> Day</span></p>
                     </div>
-                    <p><label>Applying Date: </label><span><?php echo $fecth_row_query['leaveType'] ?></span></p>
+                    <p><label>Applying Date: </label><span><?php echo $fecth_row_query['dateTime'] ?></span></p>
                     <p><label>Reason: </label><span><?php echo $fecth_row_query['reason'] ?></span></p>
                     <div class="lectureAdjustments">
                         <p class="lecture_head">Lecture Adjustments:</p>
@@ -58,10 +58,10 @@
                                 <thead>
                                     <tr>
                                         <th>Sr. no.</th>
-                                        <th>Applicant Name</th>
-                                        <th>From</th>
-                                        <th>To</th>
-                                        <th>Application Date</th>
+                                        <th>Adjusted With</th>
+                                        <th>Date</th>
+                                        <th>Start Time</th>
+                                        <th>End Time</th>
                                         <th>Semester</th>
                                         <th>Subject</th>
                                         <th>Status</th>

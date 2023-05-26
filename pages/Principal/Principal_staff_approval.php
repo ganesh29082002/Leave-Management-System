@@ -33,15 +33,17 @@
                     
                 <?php 
                     $email=$_SESSION['email'] ;
-                    // $deptId= $_SESSION['deptId'] ;
-                    // $sql1 = "SELECT userId FROM User where email = '$email' ";
-                    $sql1 = "SELECT * FROM leavedetails where status = 'APPROVED_BY_HOD'";
+                    $sql1 = "SELECT * FROM leavedetails
+                    INNER JOIN user ON leavedetails.userId = user.userId
+                    INNER JOIN department ON user.deptId = department.deptId
+                    where status = 'APPROVED_BY_HOD'";
                     $res = mysqli_query($conn, $sql1) or die("result failed in table");
 
                     if (mysqli_num_rows($res) > 0) { ?>
                         <thead>
                             <tr>
                                 <th>Applicant Name</th>
+                                <th>Department</th>
                                 <th>Leave Type</th>
                                 <th>Status</th>
                                 <th>View Details</th>
@@ -52,6 +54,7 @@
                     <tbody id="tbody">
                         <?php
                         while ($row = mysqli_fetch_assoc($res)) {
+
                             $name = $row['userId'];
                             $fetch_name = "SELECT fullName FROM user WHERE userId = $name;";
                             $fetch_name_result = mysqli_query($conn, $fetch_name);
@@ -59,6 +62,7 @@
                         ?>
                             <tr>
                                 <td><?php echo $fetched_name_row['fullName']  ?> </td>
+                                <td><?php echo $row['deptName']  ?> </td>
                                 <td><?php echo $row['leaveType']  ?> </td>
                                 <td><?php echo $row['status'] ?></td>
                                 <td class="text-end">

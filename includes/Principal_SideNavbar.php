@@ -46,11 +46,11 @@
        <span class="tooltip">Apply Leave</span>
      </li>
      <li>
-       <a href="./Principal_leave_history.php">
+       <a href="./Principal_staff_approval.php">
        <i class="fa-solid fa-building-user"></i>
-         <span class="links_name">Leave Applied</span>
+         <span class="links_name">Staff Requests</span>
        </a>
-       <span class="tooltip">Leaves Applied</span>
+       <span class="tooltip">Staff Requests</span>
      </li>
      <li class="profile">
          <div class="profile-details">

@@ -10,7 +10,7 @@
     $user_query_run = mysqli_query($conn, $user_query);
     $row = mysqli_fetch_array($user_query_run);
     $userId = $row['userId'];
-    $query = "UPDATE leavedetails SET status = 'ACCEPTED_BY_HOD', approvedIdHOD = $userId WHERE leaveInsId = $id";
+    $query = "UPDATE leavedetails SET status = 'APPROVED_BY_HOD', approvedIdHOD = $userId WHERE leaveInsId = $id";
     $run = mysqli_query($conn, $query);
     header("location: ../pages/Hod/HOD_leave_history.php");
     }

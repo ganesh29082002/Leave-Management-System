@@ -16,7 +16,7 @@
 
     $userId = $row['userId'];
 
-    $query = "UPDATE leavedetails SET status = 'ACCEPTED_BY_PRINCIPAL', approvedIdPrincipal = $userId WHERE leaveInsId = $id";
+    $query = "UPDATE leavedetails SET status = 'APPROVED_BY_PRINCIPAL', approvedIdPrincipal = $userId WHERE leaveInsId = $id";
     $run = mysqli_query($conn, $query);
     header("location: ../pages/Principal/Principal_staff_approval.php");
 ?>

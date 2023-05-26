@@ -26,7 +26,7 @@
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
         </div>
         <div class="manageUserMain">
-            <h1 class="heading">Leaves Applied</h1>
+            <h1 class="heading"> Leaves Applied</h1>
             <div class="User">
                 
                 <table class="tablecontent">
@@ -49,7 +49,14 @@
                                 <th>View Details</th>
                             </tr>
                         </thead>
-                    <?php } ?>
+                    <?php } 
+                    
+                        else{
+
+                            echo "<p class='heading' >NO REQUESTS AT THIS TIME !!</p>";
+                        }    
+
+                    ?>
 
                     <tbody id="tbody">
                         <?php

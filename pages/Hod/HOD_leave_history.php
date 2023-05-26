@@ -46,7 +46,13 @@
                                 <th>View Details</th>
                             </tr>
                         </thead>
-                    <?php } ?>
+                    <?php }
+                    
+                    else{
+                        echo "<p class='heading' >NO REQUESTS AT THIS TIME !!</p>";
+                    }    
+
+                    ?>
 
                     <tbody id="tbody">
                         <?php

@@ -66,7 +66,7 @@
                                 <td><?php echo $row['leaveType']  ?> </td>
                                 <td><?php echo $row['status'] ?></td>
                                 <td class="text-end">
-                                    <a href="HOD_leave_approval.php?id=<?php echo $row['leaveInsId']?>"><i class="fa-solid fa-eye view"></i></a>
+                                    <a href="Principal_leave_details.php?id=<?php echo $row['leaveInsId']?>"><i class="fa-solid fa-eye view"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>

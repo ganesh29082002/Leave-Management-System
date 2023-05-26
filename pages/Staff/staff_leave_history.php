@@ -59,7 +59,7 @@
                                     <a href="users.php?editid=<?php echo $row['userId'] ?>"><i class="fa-solid fa-pen-to-square edit"></i></a>
                                     <a href="users.php?sid=<?php echo $row['userId'] ?>"><i style="margin-left: 5px;" class="fa-solid fa-trash delete"></i></a>
                                 </td>
-                                <td> Approved</td>
+                                <td> <?php echo $row['status'] ?> </td>
                             </tr>
                         <?php } ?>
                     </tbody>

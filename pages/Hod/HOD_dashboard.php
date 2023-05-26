@@ -99,7 +99,7 @@
                             <!-- $db = mysqli_connect("localhost", "root", "", "") or die("connectiion Failed"); -->
                             <?php
                             $email = $_SESSION['email'];
-                            $sql1 = "SELECT * FROM leavedetails where userId = (SELECT userId FROM User where email = '$email') ";
+                            $sql1 = "SELECT * FROM leavedetails where userId = (SELECT deptHod FROM department INNER JOIN user ON department.deptHod = user.userId where email = '$email') ";
 
                             $res = mysqli_query($conn, $sql1) or die("result failed in table");
 
@@ -132,7 +132,7 @@
                                             <a href="users.php?editid=<?php echo $row['userId'] ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
                                             <a href="users.php?sid=<?php echo $row['userId'] ?>" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></a>
                                         </td>
-                                        <td> Approved </td>
+                                        <td> <?php echo $row['status'] ?> </td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

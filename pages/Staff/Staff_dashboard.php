@@ -18,7 +18,12 @@
     <?php
     include "../../includes/Staff_SideNavbar.php";
     include('../../includes/_db_conn.php');
+    include('../../includes/Authentication_verified.php');
+
     $conn = sql_conn();
+
+    $email = $_SESSION['email']
+
     ?>
     <section class="home-section">
         <div class="horizontal_navbar">
@@ -27,7 +32,7 @@
         <div class="text container">Dashboard</div>
         <div class="container bg-white rounded-lg shadow-lg mt-3 ">
             <div class="row p-3 rounded-lg shadow-lg d-flex justify-content-sm-center  " style="transition: all all 0.5s ease; border-right:6px solid #11101D">
-                <?php $sql1 = "SELECT * FROM masterdata";
+                <?php $sql1 = "SELECT * FROM leavebalance INNER JOIN user ON user.userId = leavebalance.userId where email = '$email'"; 
                 $res = mysqli_query($conn, $sql1) or die("result failed in table");
                 while ($row = mysqli_fetch_assoc($res)) { ?>
                     <div class="col-md-3 col-sm-12  rounded-lg m-3 bg-white shadow-lg fit-content" style="border-right:6px solid #11101D ">
@@ -39,12 +44,12 @@
                                 </div>
                                 <div class="row d-flex justify-content-sm-center ">
                                     <!-- PHP CODE HERE -->
-                                    <h3><?php echo $row['increment'] ?></h3>
+                                    <h3><?php echo $row['balance'] ?></h3>
                                 </div>
                             </div>
                         </div>
                         <div class="row border-top p-2">
-                            <small class="text-muted" style="font-size: smaller;"><?php echo $row['leaveDesc'] ?></small>
+                            <small class="text-muted" style="font-size: smaller;">Nice</small>
                         </div>
                     </div>
                 <?php } ?>
@@ -96,7 +101,7 @@
                                             <a href="users.php?editid=<?php echo $row['userId'] ?>" class="btn btn-outline-info btn-rounded"><i class="fas fa-pen"></i></a>
                                             <a href="users.php?sid=<?php echo $row['userId'] ?>" class="btn btn-outline-danger btn-rounded"><i class="fas fa-trash"></i></a>
                                         </td>
-                                        <td> Approved</td>
+                                        <td> <?php echo $row['status'] ?> </td>
 
 
                                         

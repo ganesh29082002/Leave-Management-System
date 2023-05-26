@@ -66,7 +66,7 @@
                 </div>
                 <div class="action">
                     <a href="../../utils/principal_approve.php?id=<?php echo $leave_id?>"><p class="approve"><i class="fa-solid fa-check"></i><span>Approve</span></p></a>
-                    <a href="../../utils/reject.php?id=<?php echo $leave_id?>"><p class="reject"><i class="fa-solid fa-xmark"></i><span>Reject</span></p></a>
+                    <a href="../../utils/principal_reject.php?id=<?php echo $leave_id?>"><p class="reject"><i class="fa-solid fa-xmark"></i><span>Reject</span></p></a>
                 </div>
             </div>
         </div>

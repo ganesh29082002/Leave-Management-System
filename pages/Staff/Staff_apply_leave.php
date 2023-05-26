@@ -31,14 +31,20 @@ include "../../includes/Authentication_verified.php"
     </div>
     <div class="container mt-2 d-flex justify-content-center ">
    <?php     
+
   $email = $_SESSION['email'];
  $sql1 = "SELECT * FROM leavebalance where userId= (SELECT userId FROM User where email = '$email')";
+
  $res = mysqli_query($conn, $sql1) or die("result failed in table");
+
  while ($row = mysqli_fetch_assoc($res)) { ?>
+
    <?php $balance =  $row['balance'] ?>
   
  <?php } ?>
+
       <form action="../../utils/insertLeave.php" method="POST" class="bg-white shadow pl-5 pr-5 pb-5 pt-2 mt-5 rounded-lg " style="border-right:6px solid #11101D;">
+      
         <h4 class="pb-3 pt-2" style="color: #11101D;">Apply for Leave</h4>
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -81,6 +87,7 @@ include "../../includes/Authentication_verified.php"
             <input type="text" required name="fromDate" data-toggle="tooltip" data-placement="top" title="Start Leave Date" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="fromDateId" placeholder="To">
 
           </div>
+
           <div class="form-group col-md-2">
             <select required id="inputState" name="fromType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark">
               <option value="" selected disable>Day Type</option>
@@ -88,6 +95,7 @@ include "../../includes/Authentication_verified.php"
               <option value="Full">Full</option>
             </select>
           </div>
+
           <div class="form-group col-md-3">
             <input type="text" required name="toDate" data-toggle="tooltip" data-placement="top" title="End Leave Date" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="toDateId" placeholder="To">
           </div>
@@ -216,6 +224,16 @@ include "../../includes/Authentication_verified.php"
 
           }
         </script>
+
+        <!-- Reason -->
+
+        <div class="form-row mb-4">
+
+
+          <input type="text" class="form-control bg-white border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder="Enter Reason" name="reason" >
+
+        </div>
+
         <!-- Lecture Adjustment Section -->
 
         <div class="form-row" id="dynamicadd">

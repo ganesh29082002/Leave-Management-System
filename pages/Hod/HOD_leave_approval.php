@@ -54,7 +54,7 @@
                             <?php
                             $query_leave_adjustments = "SELECT * FROM lectureadjustment WHERE leaveInsId = $leave_id";
                             $leave_adjustments_run = mysqli_query($conn, $query_leave_adjustments) or die("Results are not returned!");
-                            if (mysqli_num_rows($leave_adjustments_run) > 0) { ?>
+                            if ( mysqli_num_rows($leave_adjustments_run) > 0 ) { ?>
                                 <thead>
                                     <tr>
                                         <th>Sr. no.</th>
@@ -72,8 +72,11 @@
                                     <?php
                                     $flag = 1;
                                     $i = 1;
+
                                     while ($row = mysqli_fetch_array($leave_adjustments_run)) {
+
                                         $userId = $row['applicantId'];
+
                                         $fetch_name = "SELECT fullName FROM user WHERE userId = $userId;";
                                         $fetch_name_result = mysqli_query($conn, $fetch_name);
                                         $fetched_name_row = mysqli_fetch_assoc($fetch_name_result);
@@ -97,6 +100,7 @@
                                 </tbody>
                             <?php
                             } else {
+                                $flag = 1;
                                 echo "<p>No records found!</p>";
                             } ?>
                         </table>

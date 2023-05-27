@@ -61,7 +61,6 @@ include('../../utils/EditUserUtils.php');
                     <option value="Not Selected" selected disabled hidden>Staff Type</option>
                     <option value="TEACHING_STAFF">TEACHING_STAFF</option>
                     <option value="NON_TEACHING_STAFF">NON_TEACHING_STAFF</option>
-                    <option value="DEACTIVATED">DEACTIVATED</option>
                 </select>
           </div>
 
@@ -76,6 +75,13 @@ include('../../utils/EditUserUtils.php');
                     <option value="HOD">HOD</option>
                     <option value="FACULTY">FACULTY</option>
                     <option value="ADMIN">ADMIN</option>
+                </select>
+            </div>
+
+            <div class="form-group col-md-6">
+                <select name="status" class="form-control bg-white border-top-0 border-right-0 border-left-0  border border-dark">
+                    <option value="ACTIVE" selected >ACTIVE</option>
+                    <option value="DEACTIVATED" >DEACTIVATED</option>
                 </select>
             </div>
 

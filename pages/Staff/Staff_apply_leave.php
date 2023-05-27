@@ -238,10 +238,15 @@ include "../../includes/Authentication_verified.php"
 
         <div class="form-row" id="dynamicadd">
           <div class="form-group col-md-3">
+
             <select id="inputState" name="adjustedWith" class="form-control border-top-0 border-right-0 border-left-0 border border-dark">
+
               <option selected disable>Lecture Adjust With.. </option>
+
               <?php $sql1 = "SELECT * FROM user";
+
               $res = mysqli_query($conn, $sql1) or die("result failed in table");
+              
               while ($row = mysqli_fetch_assoc($res)) { ?>
                 <option><?php echo $row['email'] ?></option>
 

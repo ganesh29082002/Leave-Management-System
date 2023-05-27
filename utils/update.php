@@ -10,8 +10,9 @@ if (isset($_POST['submit'])) {
     $deptid = $_POST['deptid'];
     $joining = $_POST['joining'];
     $staff = $_POST['staff'];
+    $status = $_POST['status'];
     $position = $_POST['position'];
-    $query = "UPDATE user SET email='$emailval',fullname='$fullname',deptId='$deptid',joiningDate='$joining',userType='$staff',position='$position' WHERE email = '$email'";
+    $query = "UPDATE user SET email='$emailval',fullname='$fullname',deptId='$deptid',joiningDate='$joining',userType='$staff',position='$position',status='$status' WHERE email = '$email'";
     $result = mysqli_query($conn, $query);
     
     if ($result) {

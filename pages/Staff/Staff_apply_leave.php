@@ -30,7 +30,6 @@ include "../../includes/Authentication_verified.php"
       <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
     </div>
     <div class="container mt-2 d-flex justify-content-center ">
-<<<<<<< HEAD
    <?php     
 
   $email = $_SESSION['email'];
@@ -44,13 +43,11 @@ include "../../includes/Authentication_verified.php"
   
  <?php } ?>
 
-=======
       <?php
       $email = $_SESSION['email'];
 
 
       ?>
->>>>>>> ab1781a91ddf4d296b3ea946a2e6eb6c692e98da
       <form action="../../utils/insertLeave.php" method="POST" class="bg-white shadow pl-5 pr-5 pb-5 pt-2 mt-5 rounded-lg " style="border-right:6px solid #11101D;">
       
         <h4 class="pb-3 pt-2" style="color: #11101D;">Apply for Leave</h4>
@@ -62,7 +59,7 @@ include "../../includes/Authentication_verified.php"
             $sql1 = "SELECT * FROM user where email = '$email'";
             $res = mysqli_query($conn, $sql1) or die("result failed in table");
             $row = mysqli_fetch_assoc($res) ?>
-            <input type="email" readonly class="form-control border-top-0 border-right-0 border-left-0 border border-dark bg-white" id="inputEmail4" placeholder=" Email" name="email" value="<?php echo $row['email'] ?>">
+            <input type="email" readonly class="form-control border-top-0 border-right-0 border-left-0 border border-dark bg-white" id="inputEmail4" placeholder=" Email*" name="email" value="<?php echo $row['email'] ?>">
           </div>
           <div class="form-group col-md-6">
             <!-- <label for="inputPassword4">Password</label> -->
@@ -78,7 +75,7 @@ include "../../includes/Authentication_verified.php"
         <div class="form-row">
           <div class="form-group col-md-6">
             <select required id="leaveTypeId" name="leaveType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark" data-toggle="tooltip" data-placement="top" title="Select Leave Type" name="leaveType">
-              <option value="" disable>Choose Leave Type</option>
+              <option value="" disable>Choose Leave Type *</option>
               <?php $sql1 = "SELECT * FROM masterdata";
               $res = mysqli_query($conn, $sql1) or die("result failed in table");
               while ($row = mysqli_fetch_assoc($res)) { ?>
@@ -96,30 +93,32 @@ include "../../includes/Authentication_verified.php"
         </div>
         <div class="form-row">
           <div class="form-group col-md-3">
-            <input type="text" required name="fromDate" data-toggle="tooltip" data-placement="top" title="Start Leave Date" placeholder="From" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="fromDateId" placeholder="To">
+            <input type="text"  name="fromDate" data-toggle="tooltip" data-placement="top" title="Start Leave Date" placeholder="From*" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="fromDateId" placeholder="To" required>
 
           </div>
 
           <div class="form-group col-md-2">
-            <select required id="inputState" name="fromType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark">
-              <option value="disable" selected disable>Day Type</option>
-              <option value="Half">Half</option>
+            <select required  name="fromType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark" id="fromDateId1" >
+            <option selected disabled>Day Type*</option>
+              <option value="FirstHalf">First Half</option>
+              <option value="SecondHalf">Second Half</option>
               <option value="Full">Full</option>
             </select>
           </div>
 
           <div class="form-group col-md-3">
-            <input type="text" required name="toDate" data-toggle="tooltip" data-placement="top" title="End Leave Date" placeholder="To" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="toDateId" placeholder="To">
+            <input type="text" required name="toDate" data-toggle="tooltip" data-placement="top" title="End Leave Date" placeholder="To*" onfocus="(this.type='date')" onblur="(this.type='text')" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="toDateId" placeholder="To">
           </div>
           <div class="form-group col-md-2">
             <select required id="toTypeId" name="toType" class="form-control border-top-0 border-right-0 border-left-0 border border-dark">
-              <option selected disabled>Day Type</option>
-              <option value="Half">Half</option>
+              <option selected disabled>Day Type*</option>
+              <option value="FirstHalf">First Half</option>
+              <option value="SecondHalf">Second Half</option>
               <option value="Full">Full</option>
             </select>
           </div>
           <div class="form-group col-md-2">
-            <input type="number" name="totalDays" placeholder="Total Days" data-toggle="tooltip" data-placement="top" title="Total Leave Days" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="totalDaysId">
+            <input type="number" name="totalDays" placeholder="Total Days*" data-toggle="tooltip" data-placement="top" title="Total Leave Days" class="form-control border-top-0 border-right-0 border-left-0  border border-dark" id="totalDaysId">
           </div>
         </div>
 
@@ -144,16 +143,17 @@ include "../../includes/Authentication_verified.php"
           const startDateInput = document.getElementById('fromDateId');
           const endDateInput = document.getElementById('toDateId');
           const totalDaysInput = document.getElementById('totalDaysId');
-          const dayType = document.getElementById('toTypeId');
-
-
+          const todayType = document.getElementById('toTypeId');
+          const fromdayType = document.getElementById('fromDateId1');
 
 
           // Add event listeners to the date inputs
           leaveType.addEventListener('change', findLeaveType);
           startDateInput.addEventListener('change', calculateTotalDays);
           endDateInput.addEventListener('change', calculateTotalDays);
-          dayType.addEventListener('change', calculateMondayAndHoliday);
+          todayType.addEventListener('change', calculateMondayAndHoliday);
+          // fromdayType.addEventListener('change', calculateMondayAndHoliday);
+
 
           var balance=0; //Initial Balance
 
@@ -207,20 +207,24 @@ include "../../includes/Authentication_verified.php"
             }
 
           }
-          // Calculate Monday and if user takes half day on monday then sandwich is not happend 
+          // Calculate Monday and if user takes FirstHalf day on monday then sandwich is not happend 
           function calculateMondayAndHoliday() {
 
             startDate = new Date(startDateInput.value);
             endDate = new Date(endDateInput.value);
             console.log(endDate)
-            const selectedValue = dayType.value;
-            // console.log(selectedValue)
+            const selectedToValue = todayType.value;
+            const selectedFromValue = fromdayType.value;
+            console.log(selectedFromValue)
+
+
+            // console.log(selectedToValue)
             const dayOfWeek = endDate.getDay();
             // console.log(dayOfWeek);
             var jsonArray = <?php echo $jsonArray; ?>;
             // console.log(jsonArray[0].date);
 
-            // The function "isDateInRange" calculates holidays if a half-day is present to the next day's holiday
+            // The function "isDateInRange" calculates holidays if a FirstHalf-day is present to the next day's holiday
             function isDateInRange(inputDate, startDate, endDate) {
               const input = new Date(inputDate);
               const EndDate = new Date(endDate);
@@ -233,7 +237,7 @@ include "../../includes/Authentication_verified.php"
             for (z = 0; z < jsonArray.length; z++) {
               var inputDate = jsonArray[z].date;
               console.log(inputDate)
-              if (selectedValue === "Half") {
+              if (selectedToValue === "FirstHalf" && selectedFromValue === "Full") {
                 const isInRange = isDateInRange(inputDate, startDate, endDate);
                 console.log(isInRange)
                 if (isInRange) {
@@ -245,16 +249,46 @@ include "../../includes/Authentication_verified.php"
                   // Display the total days in the input field
                   totalDaysInput.value = totalDays;
                   break;
+                }else{
+                  const timeDiff = endDate.getTime() - startDate.getTime();
+                  const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24))+0.5;
+                  // Display the total days in the input field
+                  totalDaysInput.value = totalDays;
                 }
-              } else {
+              }
+            }
+
+           if(selectedFromValue==="FirstHalf" && selectedToValue==="FirstHalf" ){
                 const timeDiff = endDate.getTime() - startDate.getTime();
-                const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 1;
+                alert("hello")
+                const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+                // Display the total days in the input field
+                totalDaysInput.value = totalDays;
+              } 
+              else if(selectedFromValue==="FirstHalf" && selectedToValue==="Full" ) {
+                const timeDiff = endDate.getTime() - startDate.getTime();
+                const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24)) + 0.5
                 // Display the total days in the input field
                 totalDaysInput.value = totalDays;
               }
-            }
+              else if(selectedFromValue==="SecondHalf" && selectedToValue==="SecondHalf" ) {
+                const timeDiff = endDate.getTime() - startDate.getTime();
+                const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24))
+                // Display the total days in the input field
+                totalDaysInput.value = totalDays;
+              }else if(selectedFromValue==="Full" && selectedToValue==="Full" ) {
+                const timeDiff = endDate.getTime() - startDate.getTime();
+                const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24))+1
+                // Display the total days in the input field
+                totalDaysInput.value = totalDays;
+              }else if(selectedFromValue==="SecondHalf" && selectedToValue==="Full" ) {
+                const timeDiff = endDate.getTime() - startDate.getTime();
+                const totalDays = Math.floor(timeDiff / (1000 * 60 * 60 * 24))+0.5
+                // Display the total days in the input field
+                totalDaysInput.value = totalDays;
+              }
             //If Sunday and the next day of Sunday are half days, calculate the total day
-            if (dayOfWeek === 1 && selectedValue === "Half") {
+            if (dayOfWeek === 1 && selectedToValue === "FirstHalf") {
               alert("It's Monday!");
               // alert("Date range is valid.");
               // Calculate the difference in days
@@ -274,7 +308,7 @@ include "../../includes/Authentication_verified.php"
         <div class="form-row mb-4">
 
 
-          <input type="text" class="form-control bg-white border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder="Enter Reason" name="reason" >
+          <input type="text" required class="form-control bg-white border-top-0 border-right-0 border-left-0 border border-dark " id="inputEmail4" placeholder="Enter Reason*" name="reason" >
 
         </div>
 

@@ -15,7 +15,7 @@
 
 <body>
     <?php
-    include "../../includes/HOD_SideNavbar.php";
+    include "../../includes/Principal_SideNavbar.php";
     include('../../includes/_db_conn.php');
     include "../../includes/Authentication_verified.php";
 
@@ -26,37 +26,42 @@
             <h1 class="Heading_Heder"> Bajaj Institute Technology Wardha</h1>
         </div>
         <div class="manageUserMain">
-            <h1 class="heading">Leaves Applied</h1>
+            <h1 class="heading"> Leaves Applied</h1>
             <div class="User">
                 
                 <table class="tablecontent">
-                    <?php 
+                    
+                <?php 
                     $email=$_SESSION['email'] ;
-                    // $deptId= $_SESSION['deptId'] ;
-                    // $sql1 = "SELECT userId FROM User where email = '$email' ";
-                    $sql1 = "SELECT * FROM leavedetails where userId IN (SELECT userId FROM user where deptId = '$_SESSION[deptId]') AND status = 'PENDING'";
+                    $sql1 = "SELECT * FROM leavedetails
+                    INNER JOIN user ON leavedetails.userId = user.userId
+                    INNER JOIN department ON user.deptId = department.deptId
+                    where status = 'APPROVED_BY_HOD'";
                     $res = mysqli_query($conn, $sql1) or die("result failed in table");
 
                     if (mysqli_num_rows($res) > 0) { ?>
                         <thead>
                             <tr>
                                 <th>Applicant Name</th>
+                                <th>Department</th>
                                 <th>Leave Type</th>
                                 <th>Status</th>
                                 <th>View Details</th>
                             </tr>
                         </thead>
-                    <?php }
+                    <?php } 
                     
-                    else{
-                        echo "<p class='heading' >NO REQUESTS AT THIS TIME !!</p>";
-                    }    
+                        else{
+
+                            echo "<p class='heading' >NO REQUESTS AT THIS TIME !!</p>";
+                        }    
 
                     ?>
 
                     <tbody id="tbody">
                         <?php
                         while ($row = mysqli_fetch_assoc($res)) {
+
                             $name = $row['userId'];
                             $fetch_name = "SELECT fullName FROM user WHERE userId = $name;";
                             $fetch_name_result = mysqli_query($conn, $fetch_name);
@@ -64,10 +69,11 @@
                         ?>
                             <tr>
                                 <td><?php echo $fetched_name_row['fullName']  ?> </td>
+                                <td><?php echo $row['deptName']  ?> </td>
                                 <td><?php echo $row['leaveType']  ?> </td>
                                 <td><?php echo $row['status'] ?></td>
                                 <td class="text-end">
-                                    <a href="HOD_leave_approval.php?id=<?php echo $row['leaveInsId']?>"><i class="fa-solid fa-eye view"></i></a>
+                                    <a href="Principal_leave_details.php?id=<?php echo $row['leaveInsId']?>"><i class="fa-solid fa-eye view"></i></a>
                                 </td>
                             </tr>
                         <?php } ?>
